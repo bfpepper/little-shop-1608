@@ -33,7 +33,12 @@
             </div>
           <% end %>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Login | Register", 'login_path', class: "site-login" %></li>
+            <% if current_user %>
+            <li>Logged in as <%= @user.name %> <%= link_to "Logout", logout_path, method: :delete %></li>
+            <% else %>
+            <li><%= link_to "Login", login_path, class: "site-login" %></li>
+            <li><%= link_to "Create Account", new_user_path, class: "site-login" %></li>
+            <% end %>
             <li><%= button_to "View Cart (#{@cart.total})", cart_path, method: "get", class: "btn btn-info cart" %></li>
           </ul>
         </div>
