@@ -36,4 +36,8 @@ class Cart
     @contents.delete(trip_id)
   end
 
+  def update(trip_id, quantity)
+    @contents[trip_id] = quantity.to_i
+  end
+
 end

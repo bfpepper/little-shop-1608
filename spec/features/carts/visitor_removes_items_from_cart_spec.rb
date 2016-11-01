@@ -11,7 +11,7 @@ feature "visitor views cart and clicks remove" do
     end
 
     click_on "View Cart (1)"
-    click_on "Remove"
+    click_on "X"
 
     expect(page).to_not have_content("#{trip.title}")
   end

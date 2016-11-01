@@ -13,8 +13,14 @@ class CartsController < ApplicationController
 
   end
 
-  def update
+  def remove
     @cart.remove(params[:trip_id].to_s)
+    session[:cart] = @cart.contents
+    redirect_to cart_path
+  end
+
+  def update
+    @cart.update(params[:trip_id].to_s, params[:quantity])
     session[:cart] = @cart.contents
     redirect_to cart_path
   end
