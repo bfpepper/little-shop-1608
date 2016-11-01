@@ -7,10 +7,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:success] = "You have successfully created an account"
       session[:user_id] = @user.id
       redirect_to dashboard_path
     else
-      render :new
+      flash[:danger] = "You have failed to create an account. Please try again!"
+      redirect_to new_user_path
     end
   end
 

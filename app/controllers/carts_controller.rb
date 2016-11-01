@@ -5,12 +5,12 @@ class CartsController < ApplicationController
     trip = Trip.find(params[:trip_id])
     @cart.add_trip(trip.id)
     session[:cart] = @cart.contents
-    flash[:notice] = "You have #{pluralize(@cart.count_of(trip.id), "#{trip.title} trip")} in your cart."
+    flash[:success] = "You have #{pluralize(@cart.count_of(trip.id), "#{trip.title} trip")} in your cart."
     redirect_to trips_path
   end
 
   def show
-  
+
   end
 
 end

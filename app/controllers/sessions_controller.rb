@@ -8,10 +8,10 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      
+      flash[:success] = "You Successfully Logged in!"
       redirect_to dashboard_path
     else
-      render :new
+      flash[:danger] = "Email and password don't match"
     end
   end
 end
