@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101001243) do
+ActiveRecord::Schema.define(version: 20161101164242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,13 +20,19 @@ ActiveRecord::Schema.define(version: 20161101001243) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.string  "title"
-    t.text    "description"
-    t.string  "image_url"
-    t.float   "price"
-    t.integer "category_id"
-    t.index ["category_id"], name: "index_trips_on_category_id", using: :btree
+    t.string "title"
+    t.text   "description"
+    t.string "image_url"
+    t.float  "price"
   end
 
-  add_foreign_key "trips", "categories"
+  create_table "trips_categories", force: :cascade do |t|
+    t.integer "trip_id"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_trips_categories_on_category_id", using: :btree
+    t.index ["trip_id"], name: "index_trips_categories_on_trip_id", using: :btree
+  end
+
+  add_foreign_key "trips_categories", "categories"
+  add_foreign_key "trips_categories", "trips"
 end
