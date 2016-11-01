@@ -1,5 +1,5 @@
 <% @trips.each do |trip| %>
-  <p><%= trip.title %></p>
+  <p><%= trip.title %> - <%= trip.description %></p>
   <p><%= trip.image_url %></p>
   <p><%= trip.price %></p>
 <% end %>
