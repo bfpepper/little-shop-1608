@@ -90,3 +90,8 @@
 .site-login:hover {
   color: black !important;
 }
+
+.site-top {
+  height: 100px;
+  margin-bottom: 5px;
+}
