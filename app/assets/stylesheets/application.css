@@ -30,7 +30,7 @@
  src: url("/assets/Nord Light.otf") format("opentype");
  }
 
-#site-header {
+.navbar {
   background-color: seagreen;
 }
 
@@ -49,25 +49,25 @@
   margin-bottom: 30px;
 }
 
-@media screen and (min-width: 0px) and (max-width: 1024px) {
+/*@media screen and (min-width: 0px) and (max-width: 1024px) {
   .navbar-header { display: inline-block; }
-}
+}*/
 
 .navbar-right {
   float: right;
 }
 
-.navbar-center {
-  text-align: center;
-  left: 7%;
-  width: 50%;
-  display: inline-block;
-  padding-top: 20px;
-  padding-bottom: 10px;
+.navbar-nav li {
+  margin-top: 15px;
 }
 
+.navbar-header button {
+  margin-top: 35px;
+}
+
+
 @media screen and (min-width: 0px) and (max-width: 820px) {
-  .navbar-center { display: none; }
+  .navbar-form { display: none; }
 }
 
 #destination-search {
@@ -82,6 +82,10 @@
 
 .navbar-right {
   display: inline-block;
+}
+
+.navbar-form {
+  margin-top: 40px;
 }
 
 .site-login {
