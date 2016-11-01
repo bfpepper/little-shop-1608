@@ -10,14 +10,7 @@ class CartsController < ApplicationController
   end
 
   def show
-    @trips_count = @cart.contents.reduce({}) do |result, trip|
-      result[Trip.find(trip[0].to_i)] = trip[1]
-      result
-    end
-    @total = 0
-    @trips_count.each do |trip, count|
-      @total += (trip.price * count)
-    end
+  
   end
 
 end
