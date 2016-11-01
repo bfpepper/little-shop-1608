@@ -1,0 +1,37 @@
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a id="site-title" class="navbar-brand">
+        <span><img src="/assets/frog-logo-white.png" alt="" id="frog-logo"/></span>
+        Ribbit
+      </a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <%= form_tag trips_path, method: "get", class: "navbar-form navbar-left" do %>
+        <div class="form-group">
+          <%= text_field_tag :seach, "Find your next lilypad", class: "form-control", id: "destination-search" %>
+          <%= submit_tag "Go", id: "destination-submit", class: "btn btn-default" %>
+        </div>
+      <% end %>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+        <li>Logged in as <%= current_user.name %> <%= link_to "Logout", logout_path, method: :delete %></li>
+        <% else %>
+        <li><%= link_to "Login", login_path, class: "site-login" %></li>
+        <li><%= link_to "Create Account", new_user_path, class: "site-login" %></li>
+        <% end %>
+        <li><%= button_to "View Cart (#{@cart.total})", cart_path, method: "get", class: "btn btn-info cart" %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <p>Cart: <%= @cart.total %></p>
