@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :trips, only: [:index]
   resources :categories, only: [:show]
   resources :carts, only: [:create]
-  resources :users, only: [:new]
+  resources :users, only: [:new, :index, :create]
 
+  get '/dashboard', to: "users#show"
   get '/cart', to: 'carts#show'
 
   get '/login', to: "sessions#new"
