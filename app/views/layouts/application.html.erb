@@ -35,11 +35,9 @@
 
     <div class="container">
 
-      <p>Cart: <%= @cart.total %></p>
       <% flash.each do |type, message| %>
         <%= content_tag :div, message %>
       <% end %>
-      <p>
 
       <%= yield %>
     </div>

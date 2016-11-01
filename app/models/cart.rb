@@ -32,4 +32,8 @@ class Cart
     end
   end
 
+  def remove(trip_id)
+    @contents.delete(trip_id)
+  end
+
 end

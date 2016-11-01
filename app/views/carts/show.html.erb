@@ -1,6 +1,14 @@
-<% @cart.trips_count.each do |trip, count| %>
-  <%= trip.title %> - <%= count %> - <%= trip.price * count %>
-  <br>
-<% end %>
+<table class="table">
+  <th></th><th>Location</th><th>Price</th><th>Quantity</th><th></th>
+  <% @cart.trips_count.each do |trip, count| %>
+    <tr>
+      <td><%= image_tag "trip.image_url", size: 24 %></td>
+      <td><%= trip.title %></td>
+      <td><%= trip.price %></td>
+      <td><%= count %></td>
+      <td><%= button_to "Remove", update_cart_path(trip_id: trip.id), class: "btn btn-warning" %></td>
+    </tr>
+  <% end %>
+</table>
 
-<%= @cart.total_cost %>
+Subtotal (<%= @cart.total %> Items) <%= @cart.total_cost %>
