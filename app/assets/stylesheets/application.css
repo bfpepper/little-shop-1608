@@ -44,12 +44,12 @@
   margin-bottom: 30px;
 }
 
-.navbar-header {
-  display: inline-block;
-}
-
 @media screen and (min-width: 0px) and (max-width: 1024px) {
   .navbar-header { display: inline-block; }
+}
+
+.navbar-right {
+  float: right;
 }
 
 .navbar-center {
