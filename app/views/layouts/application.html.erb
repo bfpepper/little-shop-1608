@@ -25,7 +25,7 @@
 
 
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Login | Register", 'login_path', class: "site-login" %></li>
+            <li><%= link_to "Login", login_path, class: "site-login" %> | <%= link_to "Create Account", new_user_path, class: "site-login" %></li>
             <li><%= button_to "View Cart (#{@cart.total})", cart_path, method: "get", class: "btn btn-info cart" %></li>
           </ul>
 
