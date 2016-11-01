@@ -30,6 +30,40 @@
  src: url("/assets/Nord Light.otf") format("opentype");
  }
 
+#site-header {
+  background-color: seagreen;
+}
+
 #site-title {
+  color: white;
   font-family: Nord;
+  font-size: 36px;
+  letter-spacing: 5px;
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.navbar-center {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    padding-top: 20px;
+}
+
+#destination-search {
+  width: 280px;
+  text-align: center;
+}
+
+.site-login {
+  color: white !important;
+  font-family: NordMedium;
+  letter-spacing: 2px;
+  margin-top: 20px;
+  margin-right: 50px;
+}
+
+.site-login:hover {
+  color: black !important;
 }
