@@ -41,6 +41,7 @@
   letter-spacing: 5px;
   margin-top: 20px;
   margin-left: 50px;
+  margin-bottom: 30px;
 }
 
 .navbar-header {
@@ -88,4 +89,9 @@
 
 .site-login:hover {
   color: black !important;
+}
+
+.site-top {
+  height: 100px;
+  margin-bottom: 5px;
 }

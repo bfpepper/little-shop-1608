@@ -10,27 +10,32 @@
 
   <body>
 
-    <nav id="site-header" class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
+    <div class="site-top">
+      <nav id="site-header" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
 
-        <div class="navbar-header">
-          <a id="site-title" class="navbar-brand">Ribbit</a>
+          <div class="navbar-header">
+            <a id="site-title" class="navbar-brand">Ribbit</a>
+          </div>
+
+          <div class="navbar-form navbar-center input-group">
+            <%= form_tag trips_path, method: "get", class: "navbar-form" do %>
+              <%= text_field_tag :seach, "Find your next lilypad", class: "form-control", id: "destination-search" %>
+              <%= submit_tag "Go", id: "destination-submit", class: "btn btn-default" %>
+            <% end %>
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Login | Register", 'login_path', class: "site-login" %></li>
+          </ul>
+
         </div>
+      </nav>
+    </div>
 
-        <div class="navbar-form navbar-center input-group">
-          <%= form_tag trips_path, method: "get", class: "navbar-form" do %>
-            <%= text_field_tag :seach, "Find your next lilypad", class: "form-control", id: "destination-search" %>
-            <%= submit_tag "Go", id: "destination-submit", class: "btn btn-default" %>
-          <% end %>
-        </div>
+    <div class="container">
+      <%= yield %>
+    </div>
 
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Login | Register", 'login_path', class: "site-login" %></li>
-        </ul>
-
-      </div>
-    </nav>
-
-    <%= yield %>
   </body>
 </html>
