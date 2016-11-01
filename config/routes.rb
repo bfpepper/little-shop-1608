@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   root to: 'trips#index'
 
   resources :trips, only: [:index]
-  resources :categories, only: [:show]
   resources :carts, only: [:create]
   resources :users, only: [:new, :index, :create]
 
@@ -13,4 +12,5 @@ Rails.application.routes.draw do
 
   get '/login', to: "sessions#new"
   delete '/logout', to: "sessions#destroy"
+  get '/:category_name', to: 'categories#show'
 end
