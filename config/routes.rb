@@ -3,4 +3,7 @@ Rails.application.routes.draw do
 
   resources :trips, only: [:index]
   resources :categories, only: [:show]
+  resources :carts, only: [:create]
+
+  get '/cart', to: 'carts#show'
 end

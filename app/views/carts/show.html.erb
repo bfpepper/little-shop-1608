@@ -1,0 +1,6 @@
+<% @cart.trips_count.each do |trip, count| %>
+  <%= trip.title %> - <%= count %> - <%= trip.price * count %>
+  <br>
+<% end %>
+
+<%= @cart.total_cost %>
