@@ -43,17 +43,39 @@
   margin-left: 50px;
 }
 
+.navbar-header {
+  display: inline-block;
+}
+
+@media screen and (min-width: 0px) and (max-width: 1024px) {
+  .navbar-header { display: inline-block; }
+}
+
 .navbar-center {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    margin: auto;
-    padding-top: 20px;
+  text-align: center;
+  left: 7%;
+  width: 50%;
+  display: inline-block;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 820px) {
+  .navbar-center { display: none; }
 }
 
 #destination-search {
   width: 280px;
   text-align: center;
+}
+
+#destination-submit {
+  float: left;
+  margin-left: 5px;
+}
+
+.navbar-right {
+  display: inline-block;
 }
 
 .site-login {
