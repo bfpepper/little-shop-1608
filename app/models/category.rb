@@ -1,4 +1,5 @@
 class Category < ActiveRecord::Base
-  has_many :trips
   validates :title, presence: true, uniqueness: true
+  has_many :trips_categories
+  has_many :trips, through: :trips_categories
 end

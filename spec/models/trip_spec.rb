@@ -33,7 +33,7 @@ describe "Trip" do
   context "relationships" do
     it "belongs to a category" do
       trip = Trip.new
-      expect(trip).to respond_to(:category)
+      expect(trip).to respond_to(:categories)
     end
   end
 end

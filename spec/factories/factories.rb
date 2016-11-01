@@ -26,7 +26,7 @@ FactoryGirl.define do
     image_url "http://logolagoon.com/wp-content/uploads/2013/12/free-frog-logo.png"
     price
     factory :trip_with_category do
-      category {create(:category)}
+      categories {create_list(:category, 2)}
     end
   end
 end
