@@ -91,6 +91,13 @@
   color: black !important;
 }
 
+.cart {
+  font-family: NordMedium;
+  letter-spacing: 2px;
+  margin-top: 30px;
+  margin-right: 20px;
+}
+
 .site-top {
   height: 100px;
   margin-bottom: 5px;

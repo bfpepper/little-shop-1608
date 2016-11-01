@@ -9,4 +9,8 @@ class CartsController < ApplicationController
     redirect_to trips_path
   end
 
+  def show
+    
+  end
+
 end

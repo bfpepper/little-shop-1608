@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   resources :trips, only: [:index]
   resources :categories, only: [:show]
-  resources :carts, only: [:create]
+  resources :carts, only: [:create, :show]
 end
