@@ -2,4 +2,6 @@
   <p><%= trip.title %> - <%= trip.description %></p>
   <p><%= trip.image_url %></p>
   <p><%= trip.price %></p>
+  <%= button_to "Hop on it!", carts_path(trip_id: trip.id), class: "btn btn-success" %>
+  <p>
 <% end %>
