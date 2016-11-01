@@ -23,8 +23,10 @@
             <% end %>
           </div>
 
+
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Login | Register", 'login_path', class: "site-login" %></li>
+            <li><%= button_to "View Cart (#{@cart.total})", cart_path, method: "get", class: "btn btn-info cart" %></li>
           </ul>
 
         </div>
@@ -32,6 +34,13 @@
     </div>
 
     <div class="container">
+
+      <p>Cart: <%= @cart.total %></p>
+      <% flash.each do |type, message| %>
+        <%= content_tag :div, message %>
+      <% end %>
+      <p>
+
       <%= yield %>
     </div>
 
