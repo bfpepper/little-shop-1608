@@ -14,3 +14,22 @@
  *= require_self
  *= require bootstrap.min
  */
+
+ @font-face {
+ font-family: Nord;
+ src: url("/assets/Nord Regular.otf") format("opentype");
+ }
+
+ @font-face {
+ font-family: NordMedium;
+ src: url("/assets/Nord Medium.otf") format("opentype");
+ }
+
+ @font-face {
+ font-family: NordLight;
+ src: url("/assets/Nord Light.otf") format("opentype");
+ }
+
+#site-title {
+  font-family: Nord;
+}
