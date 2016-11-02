@@ -9,7 +9,8 @@ class OrdersController < ApplicationController
   def create
     @order = current_user.orders.create
     @cart.contents.each do |trip_id, count|
-      OrdersTrip.create(order_id: @order.id, trip_id: trip_id.to_i, quantity: count)
+      trip = Trip.find(trip_id.to_i)
+      OrdersTrip.create(order_id: @order.id, trip_id: trip_id.to_i, quantity: count, trip_price: trip.price)
     end
     flash[:success] = "Thank you for your order!"
     redirect_to orders_url
