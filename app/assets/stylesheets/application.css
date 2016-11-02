@@ -39,6 +39,45 @@
   height: 50px;
 }
 
+.trip-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 300px;
+  position: relative;
+}
+
+.trip-card-price {
+  position: absolute;
+  top: -18px;
+  right: 1%;
+  color: white;
+  text-shadow: 2px 2px seagreen;
+}
+
+.trip-card-header {
+  color: white;
+  text-shadow: 2px 2px seagreen;
+  margin-top: 1%;
+  margin-left: 2%;
+}
+
+.trip-card-text {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-left: 2%;
+}
+
+.trip-card-btn {
+  margin-left: 2%;
+}
+
+.trip-card-text p {
+  color: white;
+}
+
 #site-title {
   color: white;
   font-family: Nord;
