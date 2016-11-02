@@ -4,5 +4,9 @@ class Trip < ActiveRecord::Base
   has_many :trips_categories
   has_many :categories, through: :trips_categories
 
-  # enum retired: %w(not_retired retired)
+  enum retired: %w(not_retired retired)
+
+  def to_param
+    title
+  end
 end
