@@ -1,7 +1,5 @@
   <% content_tag :div, class: @trip.title %>
     <div style="background-image: url(<%= @trip.image_url %>)" class="col-md-6 trip-img">
-      <h2 class="trip-card-header"><%= @trip.title %></h2>
-      <h2 class="trip-card-price"><%= @trip.price %></h2>
       <% if @trip.not_retired? %>
       <%= button_to "Hop on it!", carts_path(trip_id: @trip.id), class: "btn btn-success trip-card-btn" %>
       <% else %>
@@ -11,4 +9,5 @@
       </div>
 
     </div>
-    <p><em><%= @trip.description %></em></p>
+    <p><h2><%= @trip.title %> <%= number_to_currency(@trip.price) %></h2></p>
+    <p><%= @trip.description %></p>
