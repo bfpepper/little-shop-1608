@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
 
-  resources :orders, only: [:new, :create]
+  resources :orders, only: [:new, :create, :index]
 
   get '/:category_name', to: 'categories#show'
 end
