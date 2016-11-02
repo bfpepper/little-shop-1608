@@ -16,6 +16,8 @@
   <% end %>
 </table>
 
-Subtotal (<%= @cart.total %> Items) <%= @cart.total_cost %>
+Subtotal (<%= @cart.total %> Items) <%= @cart.total_cost %></br>
 
-<%= link_to "Login or Create Account to Checkout", new_user_path %>
+<% unless current_user %>
+  <%= link_to "Login or Create Account to Checkout", new_user_path %>
+<% end %>
