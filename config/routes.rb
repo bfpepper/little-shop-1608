@@ -19,4 +19,8 @@ Rails.application.routes.draw do
   delete '/logout', to: "sessions#destroy"
 
   get '/:category_name', to: 'categories#show'
+
+  get '/trips/:title', to: 'trips#show', as: 'trip'
+  post '/trips/:title', to: 'trips#show'
+
 end
