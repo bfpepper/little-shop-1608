@@ -19,7 +19,15 @@ describe "Logging in" do
 
   context "user enters wrong password" do
     scenario "a user enters the wrong password to their accunt" do
+      User.create(name: "Anthony Ciccone", email: "a@gmail.com",  password: "123", password_confirmation: "123")
 
+      visit login_path
+      fill_in :Email, with: "a@gmail.com"
+      fill_in :Password, with: "12"
+      click_button "Log In!"
+
+      expect(page).to have_content "Email and password don't match"
+      expect(current_path).to eq(login_path)
     end
-  end 
+  end
 end
