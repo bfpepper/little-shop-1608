@@ -1,9 +1,12 @@
 <% @trips.each do |trip| %>
   <%= content_tag :div, class: trip.title do %>
-    <p><%= trip.title %> - <%= trip.description %></p>
-    <p><%= trip.image_url %></p>
-    <p><%= trip.price %></p>
-    <%= button_to "Hop on it!", carts_path(trip_id: trip.id), class: "btn btn-success" %>
-    <p>
+    <div style="background-image: url(<%= trip.image_url %>)" class="col-md-6 trip-img">
+      <h2 class="trip-card-header"><%= trip.title %></h2> 
+      <h2 class="trip-card-price"><%= trip.price %></h2>
+      <%= button_to "Hop on it!", carts_path(trip_id: trip.id), class: "btn btn-success trip-card-btn" %>
+      <div class="trip-card-text">
+        <p><em><%= trip.description %></em></p>
+      </div>
+    </div>
   <% end %>
 <% end %>
