@@ -29,6 +29,8 @@ feature "User orders a trip" do
       click_button("Place Order")
 
       expect(page).to have_content("Thank you for your order!")
+      expect(page).to have_content(trip.title)
+      expect(page).to have_content("1")
     end
   end
 end
