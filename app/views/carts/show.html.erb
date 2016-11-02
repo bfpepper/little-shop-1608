@@ -2,7 +2,7 @@
   <th></th><th>Location</th><th>Price</th><th>Quantity</th><th></th>
   <% @cart.trips_count.each do |trip, count| %>
     <tr>
-      <td><%= image_tag "trip.image_url", size: 24 %></td>
+      <td><%= image_tag trip.image_url, size: "60x40" %></td>
       <td><%= trip.title %></td>
       <td><%= trip.price %></td>
 
