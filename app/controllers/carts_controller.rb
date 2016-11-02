@@ -6,7 +6,11 @@ class CartsController < ApplicationController
     @cart.add_trip(trip.id)
     session[:cart] = @cart.contents
     flash[:success] = "You have #{pluralize(@cart.count_of(trip.id), "#{trip.title} trip")} in your cart."
-    redirect_to trips_path
+    if request.env["HTTP_REFERER"].include?("/trips/")
+      redirect_to trip_path(trip)
+    else
+      redirect_to trips_path
+    end
   end
 
   def show

@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   get '/:category_name', to: 'categories#show'
 
   get '/trips/:title', to: 'trips#show', as: 'trip'
+  post '/trips/:title', to: 'trips#show'
+
 end
