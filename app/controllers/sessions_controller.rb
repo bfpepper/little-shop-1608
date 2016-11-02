@@ -15,4 +15,10 @@ class SessionsController < ApplicationController
       redirect_to login_path
     end
   end
+
+  def destroy
+    session.delete(:user_id)
+    flash[:success] = "You Successfully Logged out!"
+    redirect_to trips_path
+  end
 end
