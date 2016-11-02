@@ -13,7 +13,7 @@ class Trip < ActiveRecord::Base
   end
 
   def truncate_description(trip)
-    trip[0..25]
+    trip[0..24]
   end
 
 end
