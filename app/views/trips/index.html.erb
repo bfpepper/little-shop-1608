@@ -1,12 +1,36 @@
 <% @trips.each do |trip| %>
-  <%= content_tag :div, class: trip.title do %>
-    <div style="background-image: url(<%= trip.image_url %>)" class="col-md-6 trip-img">
-      <h2 class="trip-card-header"><%= trip.title %></h2> 
-      <h2 class="trip-card-price"><%= trip.price %></h2>
-      <%= button_to "Hop on it!", carts_path(trip_id: trip.id), class: "btn btn-success trip-card-btn" %>
+  <% if trip.not_retired? %>
+    <%= content_tag :div, class: trip.title do %>
+    <div>
+      <a href=<%= trip_path(trip) %>>
+        <div style="background-image: url(<%= trip.image_url %>)" class="col-md-6 trip-img">
+          <h2 class="trip-card-header"><%= trip.title %></h2>
+      </a>
+      <h2 class="trip-card-price"><%= number_to_currency(trip.price) %></h2>
+
       <div class="trip-card-text">
         <p><em><%= trip.description %></em></p>
       </div>
+        <%= button_to "Hop on it!", carts_path(trip_id: trip.id), class: "btn btn-success trip-card-btn" %>
+      </div>
     </div>
+    <% end %>
+  <% end %>
+<% end %>
+<div class="row"> </div>
+<% @trips.each do |trip| %>
+  <% if trip.retired? %>
+    <h1>Previously Offered Trips</h1>
+    <%= content_tag :div, class: trip.title do %>
+      <a href="/trips/<%="#{trip.title}"%>">
+      </a>
+        <div style="background-image: url(<%= trip.image_url %>)" class="col-md-6 trip-img">
+          <h2 class="trip-card-header"><%= trip.title %></h2>
+          <h2 class="trip-card-price"><%= number_to_currency(trip.price) %></h2>
+          <div class="trip-card-text">
+            <p><em><%= trip.description %></em></p>
+          </div>
+        </div>
+    <% end %>
   <% end %>
 <% end %>

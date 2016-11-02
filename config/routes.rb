@@ -21,4 +21,8 @@ Rails.application.routes.draw do
   resources :orders, only: [:new, :create, :index]
 
   get '/:category_name', to: 'categories#show'
+
+  get '/trips/:title', to: 'trips#show', as: 'trip'
+  post '/trips/:title', to: 'trips#show'
+
 end

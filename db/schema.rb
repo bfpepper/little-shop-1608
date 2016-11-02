@@ -40,10 +40,11 @@ ActiveRecord::Schema.define(version: 20161102211119) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.string "title"
-    t.text   "description"
-    t.string "image_url"
-    t.float  "price"
+    t.string  "title"
+    t.text    "description"
+    t.string  "image_url"
+    t.float   "price"
+    t.integer "retired",     default: 0
   end
 
   create_table "trips_categories", force: :cascade do |t|

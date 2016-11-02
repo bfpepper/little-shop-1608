@@ -44,6 +44,8 @@
   background-repeat: no-repeat;
   height: 300px;
   position: relative;
+  margin-bottom: 2px;
+  border-right: solid 2px white;
 }
 
 .trip-card-price {
@@ -71,7 +73,7 @@
 }
 
 .trip-card-btn {
-  margin-left: 2%;
+  margin-top: 32.5%;
 }
 
 .trip-card-text p {
@@ -83,8 +85,8 @@
   font-family: Nord;
   font-size: 36px;
   letter-spacing: 5px;
-  margin-top: 20px;
   margin-left: 50px;
+  margin-top: 20px;
   margin-bottom: 30px;
 }
 
