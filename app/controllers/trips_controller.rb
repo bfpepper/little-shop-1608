@@ -5,6 +5,6 @@ class TripsController < ApplicationController
   end
 
   def show
-    @trip = Trip.find_by(title: params[:title].capitalize)
+    @trip = Trip.find_by(title: params[:title])
   end
 end
