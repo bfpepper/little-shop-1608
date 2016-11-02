@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
 
-  get '/checkout', to: 'carts#checkout'
+  resources :orders, only: [:new, :create]
 
   get '/:category_name', to: 'categories#show'
 end
