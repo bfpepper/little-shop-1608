@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20161102174614) do
     t.text    "description"
     t.string  "image_url"
     t.float   "price"
-    t.boolean "retired",     default: false
+    t.integer "retired",     default: 0
   end
 
   create_table "trips_categories", force: :cascade do |t|

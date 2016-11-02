@@ -3,4 +3,6 @@ class Trip < ActiveRecord::Base
   validates :title, uniqueness: true
   has_many :trips_categories
   has_many :categories, through: :trips_categories
+
+  # enum retired: %w(not_retired retired)
 end
