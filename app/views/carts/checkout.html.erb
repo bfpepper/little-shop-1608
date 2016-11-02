@@ -1,0 +1,13 @@
+<h2>Review Order</h2>
+<table class="table">
+  <th></th><th>Location</th><th>Price</th><th>Quantity</th><th></th>
+  <% @cart.trips_count.each do |trip, count| %>
+    <tr>
+      <td><%= image_tag trip.image_url, size: "60x40" %></td>
+      <td><%= trip.title %></td>
+      <td><%= trip.price %></td>
+      <td><%= count %> </td>
+    </tr>
+  <% end %>
+</table>
+<%= button_to "Place Order", "orders_path", class: "btn btn-warning" %>
