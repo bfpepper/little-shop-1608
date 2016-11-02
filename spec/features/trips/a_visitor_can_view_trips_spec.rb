@@ -9,7 +9,6 @@ feature "vistors visits trips index" do
 
     expect(page).to have_content trip1.title
     expect(page).to have_content trip1.price
-    expect(page).to have_content trip1.image_url
     expect(page).to have_content trip3.title
   end
 end
