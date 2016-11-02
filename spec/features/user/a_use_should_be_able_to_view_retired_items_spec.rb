@@ -3,7 +3,6 @@ require 'rails_helper'
 
 describe "Retired Trips" do
   scenario "A user can view retired items" do
-    #  trip1 = create(:trip)
      a = Trip.create(title: "Jungle", description: "Eat bugs!", image_url: "http://www.theimaginativeconservative.org/wp-conte", price: 500.0, retired: 1)
 
      visit trip_path(a)
