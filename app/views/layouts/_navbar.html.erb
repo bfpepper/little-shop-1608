@@ -21,7 +21,8 @@
       <% end %>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-        <li>Logged in as <%= current_user.name %> <%= link_to "Logout", logout_path, method: :delete %></li>
+        <li><%= link_to "Logged in as #{current_user.name}", dashboard_path, class: "site-login"%></li>
+        <li><%= link_to "Logout", logout_path, method: :delete, class: "site-login"%></li>
         <% else %>
         <li><%= link_to "Login", login_path, class: "site-login" %></li>
         <li><%= link_to "Create Account", new_user_path, class: "site-login" %></li>
