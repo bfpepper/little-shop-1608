@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = current_user.orders.create
+    @order = current_user.orders.create(cost: @cart.total_cost)
     @cart.contents.each do |trip_id, count|
       trip = Trip.find(trip_id.to_i)
       OrdersTrip.create(order_id: @order.id, trip_id: trip_id.to_i, quantity: count, trip_price: trip.price)
