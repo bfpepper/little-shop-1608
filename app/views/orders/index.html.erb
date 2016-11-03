@@ -1,0 +1,25 @@
+<% if current_user %>
+  <% current_user.orders.each do |order| %>
+    <div class="well">
+      <h2><%= link_to "Order # #{order.id}", order_path(order) %> - Ordered at: <%= time_tag order.created_at %> - Total: <%= order.cost %></h2>
+
+      <table class="table">
+        <th>Location</th><th>Quantity</th><th>Subtotal</th>
+        <% order.orders_trips.each do |order_trip| %>
+          <tr>
+            <td><%= order_trip.trip.title %></td>
+            <td><%= order_trip.quantity %></td>
+            <td><%= order_trip.subtotal %></td>
+          </tr>
+        <% end %>
+      </table>
+
+    </div>
+  <% end %>
+<% else %>
+  <div class="container">
+    <div class="jumbotron">
+      <center><b>You must be logged in to view your orders.</b></center>
+    </div>
+  </div>
+<% end %>

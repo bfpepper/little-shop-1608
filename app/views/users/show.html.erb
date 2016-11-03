@@ -1,3 +1,22 @@
-<%= @user.email %>
+  <div class="well">
+    <h2>Name: <%= @user.name %></h2>
+    <h2>Email: <%= @user.email %></h2>
 
-<%= @user.name %>
+
+    <table class="table">
+      <th>Order History<th>Location</th><th>Quantity</th><th>Subtotal</th>
+      <%@user.orders.each do |order| %>
+      <%order.orders_trips.each do |order_trips| %>
+      <% order.trips.each do |trip| %>
+        <tr>
+          <td><%= order.created_at.strftime("%m-%d-%Y") %> </td>
+          <td><%= trip.title%></td>
+          <td><%=order_trips.quantity %></td>
+          <td><%=order_trips.subtotal%></td>
+        </tr>
+        <% end  %>
+        <% end %>
+        <% end  %>
+    </table>
+    <%= button_to "Edit Profile", edit_user_path(@user), method: :get, class: "btn btn-success trip-card-btn" %>
+  </div>

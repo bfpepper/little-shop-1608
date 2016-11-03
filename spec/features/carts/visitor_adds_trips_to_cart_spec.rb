@@ -37,6 +37,8 @@ feature "visitor clicks on Hop on it!" do
 
       click_on "View Cart"
 
+      expect(current_path).to eq(cart_path)
+      expect(page).to have_content("Description")
       expect(page).to have_content("#{trip1.title}")
       expect(page).to have_content("#{trip2.price}")
       expect(page).to have_content("#{trip1.price + trip2.price}")

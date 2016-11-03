@@ -16,6 +16,21 @@ FactoryGirl.define do
     "#{n.to_f}"
   end
 
+  sequence :name do |n|
+    "User#{n}"
+  end
+
+  sequence :email do |n|
+    "user#{n}@test.com"
+  end
+
+  factory :user do
+    name
+    email
+    password "password"
+    password_confirmation "password"
+  end
+
   factory :category do
     title {generate(:category_title)}
   end

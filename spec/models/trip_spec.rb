@@ -36,4 +36,19 @@ describe "Trip" do
       expect(trip).to respond_to(:categories)
     end
   end
+
+  context "truncate_description" do
+    it "method can truncate first 25 letters of description" do
+      trip =  Trip.create(description: "TestTestTesttestTestTESTESTESTESTEST", price: 1.23, image_url: "test.com", title: "test")
+
+      expect(trip.truncate_description(trip.description)).to eq("TestTestTesttestTestTESTE")
+      expect(trip.truncate_description(trip.description).length).to eq(25)
+    end
+  end
+
+  scenario "Trips to_param method" do
+    trip = create(:trip)
+
+    expect(trip.to_param) == trip.title
+  end
 end
