@@ -27,10 +27,3 @@ describe "Authenticated user security" do
     expect(page).to have_content("404")
   end
 end
-
-
-
-# As an Authenticated User
-# I cannot view another user's private data (current or past orders, etc)
-# I cannot view the administrator screens or use admin functionality
-# I cannot make myself an admin
