@@ -15,6 +15,4 @@ class Trip < ActiveRecord::Base
   def truncate_description(trip)
     trip[0..24]
   end
-
-
 end
