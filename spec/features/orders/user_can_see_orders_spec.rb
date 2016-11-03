@@ -27,13 +27,20 @@ feature "User visits a specific order" do
     expect(page).to have_content(order2.cost)
   end
 
-  scenario "A visitor can not see /orders" do
+  scenario "A visitor can not see specific order" do
     user = create(:user)
     order = Order.create!(cost: 3, user_id: user.id)
 
     visit order_path(order)
 
+    expect(page).to_not have_content("Ribbit")
     expect(page).to have_content("The page you were looking for doesn't exist")
   end
 
+  scenario "A visitor cannot see /orders" do
+
+    visit orders_path
+
+    expect(page).to have_content("You must be logged in to view your orders.")
+  end
 end
