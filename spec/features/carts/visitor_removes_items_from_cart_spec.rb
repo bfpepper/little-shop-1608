@@ -13,6 +13,12 @@ feature "visitor views cart and clicks remove" do
     click_on "View Cart (1)"
     click_on "X"
 
-    expect(page).to_not have_content("#{trip.title}")
+    within(".success") do
+      expect(page).to have_link("#{trip.title}")
+    end
+
+    within(".cart-contents") do
+      expect(page).to_not have_content(trip.title)
+    end
   end
 end
