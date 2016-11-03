@@ -11,11 +11,11 @@ describe "Cart" do
     end
   end
 
-  it "count_of counts the number of trips" do
-    contents = {"1" => 1, "2" => 3 }
-    cart = Cart.new(contents)
+    it "count_of counts the number of trips" do
+      contents = {"1" => 1, "2" => 3 }
+      cart = Cart.new(contents)
 
-    expect(cart.count_of(2)).to eq(3)
+      expect(cart.count_of(2)).to eq(3)
   end
 
   it "total cost can sum the total coast of trips" do
@@ -42,4 +42,13 @@ describe "Cart" do
      expect(cart.remove(trip1.id.to_s)).to eq(2)
      expect(cart.contents).to eq({"#{trip2.id}" => 3})
    end
+
+   it "update can update your cart" do
+      trip = create(:trip)
+      contents = {"#{trip.id}" => 2}
+      cart = Cart.new(contents)
+      cart.update(trip.id.to_s, 3)
+
+    expect(cart.contents).to eq({"#{trip.id}" => 3})
+  end
 end
