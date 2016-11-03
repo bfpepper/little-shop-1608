@@ -3,7 +3,7 @@
   <% @cart.trips_count.each do |trip, count| %>
     <tr>
       <td><%= image_tag trip.image_url, size: "60x40" %></td>
-      <td><%= trip.title %></td>
+      <td><%= link_to trip.title, trip_path(trip) %></td>
       <td><%= trip.price %></td>
       <td><%= link_to trip.truncate_description(trip.description), trip_path(trip)%>...</td>
       <td><%= form_tag update_cart_path(trip_id: trip.id) do %>
