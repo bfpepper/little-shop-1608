@@ -4,7 +4,11 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    if current_user
+      @order = Order.find(params[:id])
+    else
+      render file: 'public/404', layout: false
+    end
   end
 
   def new
@@ -18,8 +22,7 @@ class OrdersController < ApplicationController
     end
     session[:cart].clear
 
-    flash[:success] = "Thank you for your order!"
+    flash[:success] = "Order was successfully placed!"
     redirect_to orders_url
   end
-
 end
