@@ -17,7 +17,25 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    if
+      @user = current_user
+    else
+      render file: 'public/404', layout: false
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = "You have successfully updated your account info"
+      redirect_to dashboard_path
+    else
+      render :edit
+    end
   end
 
 
