@@ -45,4 +45,10 @@ describe "Trip" do
       expect(trip.truncate_description(trip.description).length).to eq(25)
     end
   end
+
+  scenario "Trips to_param method" do
+    trip = create(:trip)
+
+    expect(trip.to_param) == trip.title
+  end
 end
