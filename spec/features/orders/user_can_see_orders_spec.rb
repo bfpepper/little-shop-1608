@@ -4,6 +4,7 @@ feature "User visits a specific order" do
   scenario "it has all relevant information" do
     user = create(:user)
     trip = create(:trip)
+    order1 = Order.create!(cost:4, user_id: user.id)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit root_path
@@ -12,13 +13,18 @@ feature "User visits a specific order" do
     click_button("Checkout")
     click_button("Place Order")
 
-    order = Order.first
-    click_link("Order # #{order.id}")
+    order2 = Order.last
 
+    click_link("Order # #{order2.id}")
     expect(page).to have_content(trip.title)
     expect(page).to have_content("1")
     expect(page).to have_content(trip.price)
-    expect(page).to have_content(order.status)
+    expect(page).to have_content(order2.status)
+
+    visit orders_path
+
+    expect(page).to have_content(order1.cost)
+    expect(page).to have_content(order2.cost)
   end
 
   scenario "A visitor can not see /orders" do
@@ -31,6 +37,3 @@ feature "User visits a specific order" do
   end
 
 end
-
-# Fix the feature test for logged in user visiting the orders page and seeing multiple orders.
-# Currently this feature test only has one order and thus does not test that the page is properly iterating and displaying all of the orders.
