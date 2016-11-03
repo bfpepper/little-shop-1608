@@ -18,6 +18,10 @@ class Cart
     contents[trip_id.to_s]
   end
 
+  def subtotal_of_trip(trip, count)
+    trip.price * count
+  end
+
   def total_cost
     contents.reduce(0) do |price, (trip_id, count)|
       price += ( Trip.find(trip_id.to_s).price * count )
