@@ -1,9 +1,4 @@
 require 'rails_helper'
-require 'action_view'
-
-RSpec.configure do |c|
-  c.include ActionView::Helpers::DateHelper
-end
 
 feature "User visits a specific order" do
 
