@@ -1,12 +1,12 @@
 <div class="well">
-  <h2>Order # <%= @order.id %></h2> 
+  <h2>Order # <%= @order.id %></h2>
   <p>Placed on: <%= time_tag @order.created_at %></p>
   <span class="label label-default"><%= @order.status %></span> <span><em>status last updated on <%= time_tag @order.updated_at %></em></span><br><br>
   <table class="table">
     <th>Location</th><th>Quantity</th><th>Subtotal</th>
     <% @order.orders_trips.each do |order_trip| %>
       <tr>
-        <td><%= order_trip.trip.title %></td>
+        <td><%= link_to order_trip.trip.title, trip_path(order_trip.trip) %></td>
         <td><%= order_trip.quantity %></td>
         <td><%= order_trip.subtotal %></td>
       </tr>

@@ -1,7 +1,7 @@
 
 <% current_user.orders.each do |order| %>
   <div class="well">
-    <h2><%= link_to "Order # #{order.id}", order_path(order) %> - Ordered at: <%= order.created_at %> - Total: <%= order.cost %></h2>
+    <h2><%= link_to "Order # #{order.id}", order_path(order) %> - Ordered at: <%= time_tag order.created_at %> - Total: <%= order.cost %></h2>
 
     <table class="table">
       <th>Location</th><th>Quantity</th><th>Subtotal</th>
