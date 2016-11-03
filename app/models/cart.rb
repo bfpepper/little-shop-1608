@@ -19,7 +19,7 @@ class Cart
   end
 
   def total_cost
-    @contents.reduce(0) do |price, (trip_id, count)|
+    contents.reduce(0) do |price, (trip_id, count)|
       price += ( Trip.find(trip_id.to_s).price * count )
       price
     end
