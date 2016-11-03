@@ -4,7 +4,11 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    if current_user
+      @order = Order.find(params[:id])
+    else
+      render file: 'public/404'
+    end
   end
 
   def new
@@ -21,5 +25,4 @@ class OrdersController < ApplicationController
     flash[:success] = "Thank you for your order!"
     redirect_to orders_url
   end
-
 end

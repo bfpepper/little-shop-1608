@@ -21,4 +21,16 @@ feature "User visits a specific order" do
     expect(page).to have_content(order.status)
   end
 
+  scenario "A visitor can not see /orders" do
+    user = create(:user)
+    order = Order.create!(cost: 3, user_id: user.id)
+
+    visit order_path(order)
+
+    expect(page).to have_content("The page you were looking for doesn't exist")
+  end
+
 end
+
+# Fix the feature test for logged in user visiting the orders page and seeing multiple orders.
+# Currently this feature test only has one order and thus does not test that the page is properly iterating and displaying all of the orders.
