@@ -1,7 +1,7 @@
 <div class="well">
   <h2>Order # <%= @order.id %></h2>
-  <p>Placed on: <%= time_tag @order.created_at %></p>
-  <span class="label label-default"><%= @order.status %></span> <span><em>status last updated on <%= time_tag @order.updated_at %></em></span><br><br>
+  <p>Placed on: <%= @order.created_at.strftime("%b %d, %Y at %l:%M %P") %></p>
+  <span class="label label-default"><%= @order.status %></span> <span><em>status last updated on <%= @order.updated_at.strftime("%b %d, %Y at %l:%M %P") %></em></span><br><br>
   <table class="table">
     <th>Location</th><th>Quantity</th><th>Subtotal</th>
     <% @order.orders_trips.each do |order_trip| %>

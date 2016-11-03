@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 feature "User visits a specific order" do
+
   scenario "it has all relevant information" do
     user = create(:user)
     trip = create(:trip)
@@ -15,16 +16,9 @@ feature "User visits a specific order" do
 
     order2 = Order.last
 
-    click_link("Order # #{order2.id}")
-    expect(page).to have_content(trip.title)
-    expect(page).to have_content("1")
-    expect(page).to have_content(trip.price)
-    expect(page).to have_content(order2.status)
+    expect(page).to have_link("Order # #{order1.id}")
+    expect(page).to have_link("Order # #{order2.id}")
 
-    visit orders_path
-
-    expect(page).to have_content(order1.cost)
-    expect(page).to have_content(order2.cost)
   end
 
   scenario "A visitor can not see specific order" do

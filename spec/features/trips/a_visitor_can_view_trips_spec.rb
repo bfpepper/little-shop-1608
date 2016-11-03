@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 feature "vistors visits trips index" do
   scenario "visitor can see all trips"  do
     trip1, trip2, trip3 = create_list(:trip, 3)
