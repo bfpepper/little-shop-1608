@@ -26,6 +26,7 @@ feature "User visits a specific order" do
     expect(page).to have_content(trip.price)
     expect(page).to have_content(order.status)
     expect(page).to have_content(order.created_at.strftime("%b %d, %Y at %l:%M %P"))
+    expect(page).to have_link("#{trip.title}")
   end
 
 end
