@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
     end
     session[:cart].clear
 
-    flash[:success] = "Thank you for your order!"
+    flash[:success] = "Order was successfully placed!"
     redirect_to orders_url
   end
 
