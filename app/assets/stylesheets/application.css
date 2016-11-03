@@ -44,6 +44,8 @@
   background-repeat: no-repeat;
   height: 300px;
   position: relative;
+  margin-bottom: 2px;
+  border-right: solid 2px white;
 }
 
 .trip-card-price {
@@ -71,7 +73,7 @@
 }
 
 .trip-card-btn {
-  margin-left: 2%;
+  margin-top: 32.5%;
 }
 
 .trip-card-text p {
@@ -83,8 +85,8 @@
   font-family: Nord;
   font-size: 36px;
   letter-spacing: 5px;
-  margin-top: 20px;
   margin-left: 50px;
+  margin-top: 20px;
   margin-bottom: 30px;
 }
 
@@ -128,21 +130,29 @@
 
 .site-login {
   color: white !important;
-  font-family: NordMedium;
-  letter-spacing: 2px;
+  font-family: serif;
+  letter-spacing: 1.4px;
   margin-top: 20px;
-  margin-right: 30px;
+  margin-right: 1px;
 }
 
 .site-login:hover {
   color: black !important;
 }
 
+.nav-seperator {
+  color: skyblue !important;
+  font-family: serif;
+  font-size: 22px;
+  margin-top: 46px !important;
+}
+
 .cart {
-  font-family: NordMedium;
+  font-family: console;
   letter-spacing: 2px;
   margin-top: 30px;
   margin-right: 50px;
+  margin-left: 20px;
 }
 
 .site-top {
