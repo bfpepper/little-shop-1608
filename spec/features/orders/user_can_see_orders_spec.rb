@@ -1,6 +1,12 @@
 require 'rails_helper'
+require 'action_view'
+
+RSpec.configure do |c|
+  c.include ActionView::Helpers::DateHelper
+end
 
 feature "User visits a specific order" do
+
   scenario "it has all relevant information" do
     user = create(:user)
     trip = create(:trip)
@@ -19,6 +25,7 @@ feature "User visits a specific order" do
     expect(page).to have_content("1")
     expect(page).to have_content(trip.price)
     expect(page).to have_content(order.status)
+    expect(page).to have_content(order.created_at.strftime("%b %d, %Y at %l:%M %P"))
   end
 
 end
