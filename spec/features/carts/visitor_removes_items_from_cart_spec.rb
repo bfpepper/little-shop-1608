@@ -16,7 +16,7 @@ feature "visitor views cart and clicks remove" do
     within(".success") do
       expect(page).to have_link("#{trip.title}")
     end
-
+    
     within(".cart-contents") do
       expect(page).to_not have_content(trip.title)
     end
