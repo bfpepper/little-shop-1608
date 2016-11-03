@@ -25,4 +25,14 @@ describe "Cart" do
 
     expect(cart.total_cost).to eq((trip1.price * 2) + (trip2.price * 2))
   end
+
+  it "trips count can count the number of trips for that trip" do
+    trip1, trip2 = create_list(:trip,2)
+    contents = {"#{trip1.id}" => 2, "#{trip2.id}" => 2}
+    cart = Cart.new(contents)
+
+    expect(cart.trips_count).to eq({trip1 => 2, trip2 => 2})
+  end
+
+   
 end
