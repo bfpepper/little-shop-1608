@@ -116,8 +116,7 @@
 }
 
 #destination-submit {
-  float: left;
-  margin-left: 5px;
+  float: right;
 }
 
 .navbar-right {
@@ -159,5 +158,3 @@
   height: 100px;
   margin-bottom: 5px;
 }
-
-

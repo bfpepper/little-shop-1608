@@ -16,4 +16,5 @@ class Trip < ActiveRecord::Base
     trip[0..24]
   end
 
+
 end
