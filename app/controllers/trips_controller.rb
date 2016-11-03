@@ -5,6 +5,14 @@ class TripsController < ApplicationController
   end
 
   def show
+    deparameterize
     @trip = Trip.find_by(title: params[:title])
+  end
+
+
+  private
+
+  def deparameterize
+    params[:title] = params[:title].gsub(/[-]/, " ").titleize
   end
 end
