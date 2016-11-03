@@ -17,8 +17,10 @@ class CartsController < ApplicationController
   end
 
   def remove
+    trip = Trip.find(params[:trip_id])
     @cart.remove(params[:trip_id].to_s)
     session[:cart] = @cart.contents
+    flash[:success] = "Successfully removed #{view_context.link_to trip.title, trip} from cart."
     redirect_to cart_path
   end
 
