@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   root to: 'trips#index'
 
+  namespace :admin do
+    get '/dashboard', to: 'dashboard#index'
+  end
+
   resources :trips, only: [:index]
   resources :carts, only: [:create]
   resources :users, only: [:new, :index, :create, :edit]
