@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
     if current_user
       @order = Order.find(params[:id])
     else
-      render file: 'public/404'
+      render file: 'public/404', layout: false
     end
   end
 
