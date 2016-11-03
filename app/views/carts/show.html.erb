@@ -1,11 +1,13 @@
-<table class="table">
+<table class="table cart-contents">
   <th></th><th>Location</th><th>Price</th><th>Description<th>Subtotal<th>Quantity</th></th><th></th>
   <% @cart.trips_count.each do |trip, count| %>
     <tr>
       <td><%= image_tag trip.image_url, size: "60x40" %></td>
       <td><%= link_to trip.title, trip_path(trip) %></td>
       <td><%= trip.price %></td>
-      <td><%= link_to trip.truncate_description(trip.description), trip_path(trip)%>...</td>
+      <td>
+      <span class="glyphicon glyphicon-align-center" aria-label="Left Align" data-toggle="tooltip" data-placement="bottom" title="<%= trip.description %>"></span>
+      </td>
       <td><%= @cart.subtotal_of_trip(trip, count) %></td>
       <td><%= form_tag update_cart_path(trip_id: trip.id) do %>
         <%= select_tag :quantity, options_for_select([1,2,3,4,5,6,7,8,9], count) %>
