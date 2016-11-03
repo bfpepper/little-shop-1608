@@ -27,7 +27,6 @@ feature "User orders a trip" do
       click_button("View Cart (1)")
       click_button("Checkout")
       click_button("Place Order")
-      save_and_open_page
 
       expect(page).to have_content("Thank you for your order!")
       expect(page).to have_content(trip.title)
