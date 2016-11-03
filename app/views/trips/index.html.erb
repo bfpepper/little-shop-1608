@@ -22,7 +22,7 @@
 <% @trips.each do |trip| %>
   <% if trip.retired? %>
     <%= content_tag :div, class: trip.title do %>
-      <a href="/trips/<%="#{trip.title}"%>">
+       <%= link_to trip.title, trip_path(trip)%>
         <div style="background-image: url(<%= trip.image_url %>)" class="col-md-6 trip-img">
           <h2 class="trip-card-header"><%= trip.title %></h2>
       </a>

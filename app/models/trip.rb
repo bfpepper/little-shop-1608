@@ -9,11 +9,12 @@ class Trip < ActiveRecord::Base
   enum retired: %w(not_retired retired)
 
   def to_param
-    title
+    "#{title.parameterize}"
   end
 
   def truncate_description(trip)
     trip[0..24]
   end
+
 
 end
