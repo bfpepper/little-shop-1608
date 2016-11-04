@@ -148,7 +148,7 @@
   color: white;
   text-shadow: 2px 2px seagreen;
   margin-top: 1%;
-  margin-left: 2%;
+  margin-left: 1%;
 }
 
 .trip-card-text {
@@ -161,7 +161,9 @@
 }
 
 .trip-card-btn {
-  margin-top: 32.5%;
+  position: absolute;
+  bottom: 40px;
+  left: 4%;
 }
 
 .trip-card-text p {
