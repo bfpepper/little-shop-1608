@@ -15,6 +15,11 @@
  *= require bootstrap.min
  */
 
+/*
+ =============================================
+ FONTS
+ =============================================
+*/
  @font-face {
  font-family: Nord;
  src: url("/assets/Nord Regular.otf") format("opentype");
@@ -30,6 +35,12 @@
  src: url("/assets/Nord Light.otf") format("opentype");
  }
 
+/*
+ =============================================
+ NAVBAR
+ =============================================
+*/
+
 .navbar {
   background-color: seagreen;
 }
@@ -37,47 +48,6 @@
 #frog-logo {
   width: 50px;
   height: 50px;
-}
-
-.trip-img {
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 300px;
-  position: relative;
-  margin-bottom: 2px;
-  border-right: solid 2px white;
-}
-
-.trip-card-price {
-  position: absolute;
-  top: -18px;
-  right: 1%;
-  color: white;
-  text-shadow: 2px 2px seagreen;
-}
-
-.trip-card-header {
-  color: white;
-  text-shadow: 2px 2px seagreen;
-  margin-top: 1%;
-  margin-left: 2%;
-}
-
-.trip-card-text {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding-left: 2%;
-}
-
-.trip-card-btn {
-  margin-top: 32.5%;
-}
-
-.trip-card-text p {
-  color: white;
 }
 
 #site-title {
@@ -146,6 +116,66 @@
   margin-top: 46px !important;
 }
 
+.site-top {
+  height: 100px;
+  margin-bottom: 5px;
+}
+
+/*
+ =============================================
+ TRIP CARDS
+ =============================================
+*/
+
+.trip-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 300px;
+  position: relative;
+  margin-bottom: 2px;
+  border-right: solid 2px white;
+}
+
+.trip-card-price {
+  position: absolute;
+  top: -18px;
+  right: 1%;
+  color: white;
+  text-shadow: 2px 2px seagreen;
+}
+
+.trip-card-header {
+  color: white;
+  text-shadow: 2px 2px seagreen;
+  margin-top: 1%;
+  margin-left: 1%;
+}
+
+.trip-card-text {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-left: 2%;
+}
+
+.trip-card-btn {
+  position: absolute;
+  bottom: 40px;
+  left: 4%;
+}
+
+.trip-card-text p {
+  color: white;
+}
+
+
+/*
+ =============================================
+ CART
+ =============================================
+*/
 .cart {
   font-family: console;
   letter-spacing: 2px;
@@ -154,7 +184,3 @@
   margin-left: 20px;
 }
 
-.site-top {
-  height: 100px;
-  margin-bottom: 5px;
-}
