@@ -10,7 +10,7 @@
           <div class="trip-card-text">
             <p><em><%= trip.truncate_description(trip.description) %>...</em></p>
           </div>
-          <%= button_to "Hop on it!", carts_path(trip_id: trip.id), class: "btn btn-success trip-card-btn" %>
+          <%= button_to "Hop on it!", carts_path(trip_id: trip.id), class: "btn btn-success trip-card-btn btn-lg" %>
         </div>
       </div>
     <% end %>
