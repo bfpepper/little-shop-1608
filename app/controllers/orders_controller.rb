@@ -25,4 +25,10 @@ class OrdersController < ApplicationController
     flash[:success] = "Order was successfully placed!"
     redirect_to orders_url
   end
+
+  private
+
+  def require_correct_user
+    
+  end
 end
