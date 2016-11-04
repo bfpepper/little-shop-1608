@@ -4,11 +4,8 @@ class OrdersController < ApplicationController
   end
 
   def show
-    if current_user
-      @order = Order.find(params[:id])
-    else
-      render file: 'public/404', layout: false
-    end
+    @order = Order.find(params[:id])
+    render file: 'public/404', layout: false unless current_user && current_user == @order.user
   end
 
   def new
@@ -26,9 +23,4 @@ class OrdersController < ApplicationController
     redirect_to orders_url
   end
 
-  private
-
-  def require_correct_user
-    
-  end
 end
