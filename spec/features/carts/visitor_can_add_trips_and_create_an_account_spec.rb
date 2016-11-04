@@ -28,7 +28,9 @@ feature "Visitor can add trips and create account" do
     fill_in :Name, with: "Ben Pepper"
     fill_in :Password, with: "test"
     fill_in "user[password_confirmation]", with: "test"
-    click_on "Create User"
+    within(".new-user") do
+      click_on 'Create Account'
+    end
 
     visit cart_path
 
