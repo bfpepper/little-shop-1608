@@ -8,8 +8,9 @@ feature "visitor visits create account page" do
       fill_in 'user[email]', with: "jim@jim.com"
       fill_in 'user[password]', with: 'butt'
       fill_in 'user[password_confirmation]', with: 'butt'
-      click_on 'Create User'
-
+      within(".new-user") do
+        click_on 'Create Account'
+      end
       expect(page).to have_content("You have failed to create an account.")
     end
   end
@@ -21,8 +22,9 @@ feature "visitor visits create account page" do
       fill_in 'user[name]', with: "jim"
       fill_in 'user[password]', with: 'butt'
       fill_in 'user[password_confirmation]', with: 'butt'
-      click_on 'Create User'
-
+      within(".new-user") do
+        click_on 'Create Account'
+      end
       expect(page).to have_content("You have failed to create an account.")
     end
   end
@@ -34,8 +36,9 @@ feature "visitor visits create account page" do
       fill_in 'user[name]', with: "jim"
       fill_in 'user[email]', with: 'jim@jim.com'
       fill_in 'user[password_confirmation]', with: 'butt'
-      click_on 'Create User'
-
+      within(".new-user") do
+        click_on 'Create Account'
+      end
       expect(page).to have_content("You have failed to create an account.")
     end
   end
@@ -47,8 +50,9 @@ feature "visitor visits create account page" do
       fill_in 'user[name]', with: "jim"
       fill_in 'user[email]', with: 'jim@jim.com'
       fill_in 'user[password]', with: 'butt'
-      click_on 'Create User'
-
+      within(".new-user") do
+        click_on 'Create Account'
+      end
       expect(page).to have_content("You have failed to create an account.")
     end
   end
@@ -61,8 +65,9 @@ feature "visitor visits create account page" do
       fill_in 'user[email]', with: 'jim@jim.com'
       fill_in 'user[password]', with: 'butt'
       fill_in 'user[password_confirmation]', with: 'ass'
-      click_on 'Create User'
-
+      within(".new-user") do
+        click_on 'Create Account'
+      end
       expect(page).to have_content("You have failed to create an account.")
     end
   end
