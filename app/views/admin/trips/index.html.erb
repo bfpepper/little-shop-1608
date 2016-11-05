@@ -10,7 +10,7 @@
       <span class="glyphicon glyphicon-align-center" aria-label="Left Align" data-toggle="tooltip" data-placement="bottom" title="<%= trip.description %>"></span>
       </td>
       <td><%= trip.retired %></td>
-      <td><%= link_to "Edit", edit_admin_trip_path(trip), class: "btn btn-success" %></td>
+      <td><%= link_to "Edit", edit_admin_trip_path(trip, title: trip.title), class: "btn btn-success" %></td>
     </tr>
   <% end %>
 </table>

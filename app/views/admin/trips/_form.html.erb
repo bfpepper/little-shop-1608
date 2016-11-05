@@ -8,6 +8,6 @@
   <%= f.label :image_url %>
   <%= f.text_field :image_url %>
   <%= f.collection_select(:category_ids, @categories, :id, :title) %>
+  <%= f.hidden_field :trip_id, value: @trip.id %>
 <%= f.submit %>
 <% end %>
-
