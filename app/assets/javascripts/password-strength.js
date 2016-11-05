@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
 
   $("#user_password").keypress(function(){
     var pwordLength = $("#user_password").val().length;
