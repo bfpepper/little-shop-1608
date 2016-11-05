@@ -17,7 +17,7 @@ $(document).ready(function(){
 
     } else if ( pwordLength < 13) {
       $("#strength").text("password strength: oustanding");
-      $("#strength").css('color', 'blue');
+      $("#strength").css('color', 'navy');
 
     } else if ( pwordLength < 17) {
       $("#strength").text("password strength: god-like");
@@ -43,7 +43,7 @@ $(document).ready(function(){
 
       } else if ( pwordLength < 15) {
         $("#strength").text("password strength: oustanding");
-        $("#strength").css('color', 'blue');
+        $("#strength").css('color', 'navy');
 
       } else if ( pwordLength < 19) {
         $("#strength").text("password strength: god-like");
