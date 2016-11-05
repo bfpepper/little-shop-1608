@@ -1,1 +1,16 @@
 Admin Dashboard
+
+<table class="table">
+    <tr>
+        <th>User<th>Order Date<th>Trip Name</th><th>Quantity</th><th>Subtotal<th> Status</th>
+        <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.user.name %></td>
+          <td><%= order.created_at.strftime("%m-%d-%Y") %> </td>
+          <td><%= link_to order.trips.trip_titles, admin_order_path(order)  %></td>
+          <td><%= order.orders_trips.trip_quantity  %></td>
+          <td><%= order.cost %></td>
+          <td><%= order.status %></td>
+    </tr>
+    <% end %>
+  </table>

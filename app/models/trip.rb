@@ -15,4 +15,8 @@ class Trip < ActiveRecord::Base
   def truncate_description(trip)
     trip[0..24]
   end
+
+  def self.trip_titles
+    pluck(:title).join(", ")
+  end
 end
