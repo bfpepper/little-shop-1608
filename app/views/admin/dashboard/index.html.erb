@@ -1,8 +1,19 @@
-Admin Dashboard
+<h2 class="text-center">Admin Dashboard</h2>
 
 <table class="table">
     <tr>
-        <th>User<th>Order Date<th>Trip Name</th><th>Quantity</th><th>Subtotal<th> Status</th>
+        <th>User<th>Order Date<th>Trip Name</th><th>Quantity</th><th>Subtotal<th> <div class="dropdown open">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Status
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><%= link_to "All Orders", admin_dashboard_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Ordered", "#{admin_dashboard_path}/?status=ordered", class: "dropdown-item" %></li>
+            <li><%= link_to "Paid", "#{admin_dashboard_path}/?status=paid", class: "dropdown-item" %></li>
+            <li><%= link_to "Cancelled", "#{admin_dashboard_path}/?status=cancelled", class: "dropdown-item" %></li>
+            <li><%= link_to "Completed", "#{admin_dashboard_path}/?status=completed", class: "dropdown-item" %></li>
+          </div>
+        </div></th>
         <% @orders.each do |order| %>
         <tr>
           <td><%= order.user.name %></td>
