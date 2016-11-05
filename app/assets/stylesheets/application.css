@@ -121,6 +121,22 @@
   margin-bottom: 5px;
 }
 
+@-webkit-keyframes wiggle {
+	0% {
+		-webkit-transform:rotate(4deg);
+	}
+	50% {
+		-webkit-transform:rotate(-4deg);
+	}
+	100% {
+		-webkit-transform:rotate(4deg);
+	}
+}
+
+.wiggle:hover {
+	-webkit-animation: wiggle 0.5s infinite;
+}
+
 /*
  =============================================
  TRIP CARDS
@@ -170,6 +186,8 @@
   color: white;
 }
 
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); z-index: 1; }
 
 /*
  =============================================
@@ -191,4 +209,10 @@
 */
 .center-form {
   margin: auto !important;
+}
+
+#strength {
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-left: 10px;
 }

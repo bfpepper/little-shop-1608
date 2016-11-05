@@ -10,8 +10,7 @@
       </td>
       <td><%= @cart.subtotal_of_trip(trip, count) %></td>
       <td><%= form_tag update_cart_path(trip_id: trip.id) do %>
-        <%= select_tag :quantity, options_for_select([1,2,3,4,5,6,7,8,9], count) %>
-        <%= submit_tag "Update", class: "btn btn-info" %>
+        <%= select_tag :quantity, options_for_select([1,2,3,4,5,6,7,8,9], count), class: "cart-quantity", onchange: "changeCart(#{trip.id}, this)" %>
       <% end %></td>
 
       <td><%= button_to "X", update_cart_path(trip_id: trip.id), method: "put", class: "btn btn-warning" %></td>
