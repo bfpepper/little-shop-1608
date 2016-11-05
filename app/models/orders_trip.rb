@@ -9,4 +9,8 @@ class OrdersTrip < ApplicationRecord
   def subtotal
     trip_price * quantity
   end
+
+  def self.trip_quantity
+    pluck(:quantity).sum
+  end
 end
