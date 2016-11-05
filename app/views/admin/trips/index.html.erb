@@ -1,6 +1,6 @@
 <h1>All Trips</h1>
 <table class="table">
-  <th>Image</th><th>Title</th><th>Price</th><th>Description</th><th></th>
+  <th>Image</th><th>Title</th><th>Price</th><th>Description</th><th>Status</th><th></th>
   <% @trips.each do |trip| %>
     <tr>
       <td><%= image_tag trip.image_url, size: "60x40" %></td>
@@ -9,7 +9,8 @@
       <td>
       <span class="glyphicon glyphicon-align-center" aria-label="Left Align" data-toggle="tooltip" data-placement="bottom" title="<%= trip.description %>"></span>
       </td>
-      <td><%= link_to "Edit", edit_admin_trip_path(trip) %></td>
+      <td><%= trip.retired %></td>
+      <td><%= link_to "Edit", edit_admin_trip_path(trip), class: "btn btn-success" %></td>
     </tr>
   <% end %>
 </table>

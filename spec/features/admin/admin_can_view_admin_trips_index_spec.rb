@@ -10,7 +10,7 @@ feature "Admin trip viewing" do
     
     expect(page).to have_link(trip1.title)
     expect(page).to have_link(trip2.title)
-    expect(page).to have_content(trip1.status)
+    expect(page).to have_content(trip1.retired)
     expect(page).to have_link("Edit")
   end
 end
