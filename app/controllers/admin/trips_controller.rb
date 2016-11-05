@@ -19,6 +19,13 @@ class Admin::TripsController < Admin::BaseController
     end
   end
 
+  def edit
+    @trip = Trip.find(params[:id])
+  end
+
+  def update
+  end
+
 
   private
 

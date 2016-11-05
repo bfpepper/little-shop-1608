@@ -8,7 +8,7 @@ feature "Admin trip editing" do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit admin_dashboard_path
+    visit admin_trips_path
 
     click_link ("Edit")
     
