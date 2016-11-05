@@ -1,5 +1,9 @@
 class Admin::TripsController < Admin::BaseController
 
+  def index
+    @trips = Trip.all
+  end
+
   def new
     @trip = Trip.new
     @categories = Category.all
