@@ -11,6 +11,6 @@ class OrdersTrip < ApplicationRecord
   end
 
   def self.trip_quantity
-    pluck(:quantity).reduce(:+)
+    pluck(:quantity).sum
   end
 end
