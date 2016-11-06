@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'trips#index'
 
+  get '/auth/github/callback', to: 'sessions#create'
+
   namespace :admin do
     get '/dashboard', to: 'dashboard#index'
     get '/dashboard/:id', to: 'dashboard#show', as: 'order'

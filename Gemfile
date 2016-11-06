@@ -30,6 +30,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'awesome_print'
 gem 'rubocop'
+gem 'faraday'
 
 
 # Use Capistrano for deployment
