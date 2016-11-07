@@ -1,3 +1,6 @@
+<script src="//maps.google.com/maps/api/js?key=AIzaSyAIJP7uNqEDirpXJHIBBWxXiucPpyH2waQ"></script>
+<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+
 <% content_tag :div, class: @trip.title %>
 <div style="background-image: url(<%= @trip.image_url %>)" class="col-md-6 trip-img"></div>
   <div class = "col-md-6 trip-img">
@@ -9,3 +12,16 @@
     <p><strong><%= "Trip Retired" %></strong></p>
   <% end %>
 </div>
+
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>

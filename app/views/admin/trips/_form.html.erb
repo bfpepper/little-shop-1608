@@ -23,6 +23,10 @@
           <%= f.text_field :image_url, class: "input-md textinput textInput form-control" %>
         </div>
         <div class="form-group">
+          <%= f.label :location, class: "control-label col-md-4" %>
+          <%= f.text_field :address, class: "input-md textinput textInput form-control" %>
+        </div>
+        <div class="form-group">
           <%= f.label :category, class: "control-label col-md-4" %>
           <%= f.collection_select :category_ids, @categories, :id, :title, class: "form-inline input-md form-control" %>
         </div>
