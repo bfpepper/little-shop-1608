@@ -6,7 +6,7 @@
       <% if @trip.not_retired? %>
         <%= button_to "Hop on it!", carts_path(trip_id: @trip.id), class: "btn btn-success btn-lg" %>
       <% else %>
-        <p><strong><%= "Trip Retired" %></strong></p>
+        <p id="retired"><strong><%= "Trip Retired" %></strong></p>
       <% end %>
     </div>
   </div>

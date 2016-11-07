@@ -201,6 +201,19 @@
   height: 300px;
 }
 
+.container .jumbotron {
+  border-radius: 0px;
+}
+
+#retired {
+  display: inline-block;
+  background: orange;
+  border: 1px solid #cc8500;
+  border-radius: 6px;
+  color: white;
+  padding: 6px;
+}
+
 #show-jumbo-txt {
   color: white;
   text-shadow: 2px 2px seagreen;
