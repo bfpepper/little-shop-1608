@@ -214,6 +214,10 @@
   padding: 6px;
 }
 
+.show-well {
+  background-color: seagreen;
+}
+
 #show-jumbo-txt {
   color: white;
   text-shadow: 2px 2px seagreen;
