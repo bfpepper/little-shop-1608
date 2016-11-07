@@ -26,6 +26,7 @@ describe "An authorized admin visits /dashboard" do
 
 
   scenario "an admin can view orders by specific category" do
+    pending
     trip1, trip2 = create_list(:trip, 22)
 
     admin_user = create(:user)
