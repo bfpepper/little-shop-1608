@@ -16,7 +16,4 @@ class ApplicationController < ActionController::Base
     current_user && current_user.admin?
   end
 
-  def deparameterize
-    params[:title] = params[:title].gsub(/[-]/, " ").titleize
-  end
 end

@@ -9,7 +9,7 @@ class Trip < ActiveRecord::Base
   enum retired: %w(not_retired retired)
 
   def to_param
-    "#{title.parameterize}"
+    "#{id}-#{slug}"
   end
 
   def truncate_description(trip)
@@ -18,5 +18,9 @@ class Trip < ActiveRecord::Base
 
   def self.trip_titles
     pluck(:title).join(", ")
+  end
+
+  def slug
+    title.downcase.gsub(" ", "-")
   end
 end

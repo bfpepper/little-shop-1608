@@ -26,7 +26,6 @@
           <%= f.label :category, class: "control-label col-md-4" %>
           <%= f.collection_select :category_ids, @categories, :id, :title, class: "form-inline input-md form-control" %>
         </div>
-        <%= f.hidden_field :trip_id, value: @trip.id %>
       <%= f.submit class: "btn btn-warning" %>
       <% end %>
     </div>
