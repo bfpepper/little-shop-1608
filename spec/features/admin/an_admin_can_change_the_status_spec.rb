@@ -99,7 +99,7 @@ describe 'an admin visists /dashboard' do
       expect(page).to have_button('Mark Paid', disabled: true)
   end
 
-  scenario 'an admin can only mark as paid if order status is ordered' do
+  scenario 'an admin can only mark as paid if order status is paid' do
     trip1, trip2 = create_list(:trip, 22)
 
     admin_user = create(:user)
