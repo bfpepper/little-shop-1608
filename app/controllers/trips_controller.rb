@@ -5,8 +5,7 @@ class TripsController < ApplicationController
   end
 
   def show
-    deparameterize
-    @trip = Trip.find_by(title: params[:title])
+    @trip = Trip.find(params[:id])
   end
 
 end

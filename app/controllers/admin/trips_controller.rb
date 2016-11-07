@@ -20,13 +20,12 @@ class Admin::TripsController < Admin::BaseController
   end
 
   def edit
-    deparameterize
-    @trip = Trip.find_by(title: params[:title])
+    @trip = Trip.find(params[:id])
     @categories = Category.all
   end
 
   def update
-    @trip = Trip.find(params[:trip][:trip_id])
+    @trip = Trip.find(params[:id])
     if @trip.update(trip_params)
       flash[:success] = "Successfully updated #{@trip.title}!"
       redirect_to admin_trips_path
