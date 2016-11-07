@@ -31,6 +31,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'awesome_print'
 gem 'rubocop'
 gem 'faraday'
+gem 'rails_12factor', group: :production
 
 
 # Use Capistrano for deployment
