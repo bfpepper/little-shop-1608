@@ -36,4 +36,5 @@ Rails.application.routes.draw do
 
   post '/change_status/:id', to: 'orders#change_status', as: 'change_status'
 
+  get '/admin/change_status_view', to: 'admin/dashboard#change_status'
 end
