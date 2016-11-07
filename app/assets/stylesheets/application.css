@@ -191,6 +191,24 @@
 
 /*
  =============================================
+ TRIP SHOW PAGE
+ =============================================
+*/
+
+.show-jumbo {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 300px;
+}
+
+#show-jumbo-txt {
+  color: white;
+  text-shadow: 2px 2px seagreen;
+}
+
+
+/*
+ =============================================
  CART
  =============================================
 */
