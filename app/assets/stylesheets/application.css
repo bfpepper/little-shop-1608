@@ -213,3 +213,14 @@
   font-weight: bold;
   margin-left: 10px;
 }
+
+.btn-github {
+  background-color: #333333;
+  color: white;
+  margin-bottom: 2%;
+}
+
+.btn-github:hover {
+  background-color: #1a1a1a;
+  color: white;
+}
