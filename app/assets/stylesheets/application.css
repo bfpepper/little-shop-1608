@@ -191,6 +191,41 @@
 
 /*
  =============================================
+ TRIP SHOW PAGE
+ =============================================
+*/
+
+.show-jumbo {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 300px;
+}
+
+.container .jumbotron {
+  border-radius: 0px;
+}
+
+#retired {
+  display: inline-block;
+  background: orange;
+  border: 1px solid #cc8500;
+  border-radius: 6px;
+  color: white;
+  padding: 6px;
+}
+
+.show-well {
+  background-color: seagreen;
+}
+
+#show-jumbo-txt {
+  color: white;
+  text-shadow: 2px 2px seagreen;
+}
+
+
+/*
+ =============================================
  CART
  =============================================
 */
@@ -216,4 +251,14 @@
 
 #admin-order-status {
   float: right;
+
+.btn-github {
+  background-color: #333333;
+  color: white;
+  margin-bottom: 2%;
+}
+
+.btn-github:hover {
+  background-color: #1a1a1a;
+  color: white;
 }
