@@ -5,8 +5,7 @@ class TripsController < ApplicationController
   end
 
   def show
-    deparameterize
-    @trip = Trip.find_by(title: params[:title])
+    @trip = Trip.find(params[:id])
     @hash = Gmaps4rails.build_markers(@trip) do |trip, marker|
       marker.lat trip.latitude
       marker.lng trip.longitude
