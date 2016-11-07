@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="mainbox col-md-6 center-form">
+  <div class="mainbox col-md-8 col-md-offset-2">
     <div class="panel panel-info">
       <div class="panel-heading">
         <div class="panel-title"><%= @trip.title %></div>
@@ -23,8 +23,12 @@
           <%= f.text_field :image_url, class: "input-md textinput textInput form-control" %>
         </div>
         <div class="form-group">
+          <%= f.label :location, class: "control-label col-md-4" %>
+          <%= f.text_field :address, class: "input-md textinput textInput form-control" %>
+        </div>
+        <div class="form-group">
           <%= f.label :category, class: "control-label col-md-4" %>
-          <%= f.collection_select :category_ids, @categories, :id, :title, class: "form-inline input-md form-control" %>
+          <%= f.collection_select :category_ids, @categories, :id, :title, class: "form-inline" %>
         </div>
       <%= f.submit class: "btn btn-warning" %>
       <% end %>

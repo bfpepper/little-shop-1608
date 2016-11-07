@@ -19,3 +19,6 @@
 # Ignore Vim temporary files
 *.swp
 *.swo
+
+# Ignore application configuration
+/config/application.yml
