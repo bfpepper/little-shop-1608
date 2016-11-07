@@ -39,10 +39,10 @@ describe "Trip" do
 
   context "truncate_description" do
     it "method can truncate first 25 letters of description" do
-      trip =  Trip.create(description: "TestTestTesttestTestTESTESTESTESTEST", price: 1.23, image_url: "test.com", title: "test")
+      trip =  Trip.create(description: "TestTestTasdasdasdasdestteadasdstTestTEdasdasdasdSTESTEasdasdasdsadSTESdasdasdasdasdsadasTEST", price: 1.23, image_url: "test.com", title: "test")
 
-      expect(trip.truncate_description(trip.description)).to eq("TestTestTesttestTestTESTE")
-      expect(trip.truncate_description(trip.description).length).to eq(25)
+      expect(trip.truncate_description(trip.description)).to eq("TestTestTasdasdasdasdestteadasdstTestTEdasdasdasdSTESTEasdasdasdsadSTESdasda")
+      expect(trip.truncate_description(trip.description).length).to eq(76)
     end
   end
 
