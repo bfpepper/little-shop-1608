@@ -80,8 +80,8 @@ describe 'an admin visists /dashboard' do
 
       expect(page).to have_button('Cancel', disabled: true)
     end
-  end 
-    scenario 'an admin can only cancel an order that are paid or ordered' do
+  end
+    scenario 'an admin can only mark as paid if order status is ordered' do
       trip1, trip2 = create_list(:trip, 22)
 
       admin_user = create(:user)
@@ -96,6 +96,6 @@ describe 'an admin visists /dashboard' do
 
       visit admin_dashboard_path
 
-      expect(page).to have_button('Cancel', disabled: true)
+      expect(page).to have_button('Mark Paid', disabled: true)
   end
-end
+end 
