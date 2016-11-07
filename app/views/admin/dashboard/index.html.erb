@@ -13,7 +13,7 @@
             <li><%= link_to "Cancelled", "#{admin_dashboard_path}/?status=cancelled", class: "dropdown-item" %></li>
             <li><%= link_to "Completed", "#{admin_dashboard_path}/?status=completed", class: "dropdown-item" %></li>
           </div>
-        </div></th><th></th><th></th>
+        </div></th><th></th><th></th><th></th>
         <% @orders.each do |order| %>
         <tr>
           <td><%= order.user.name %></td>
@@ -27,6 +27,11 @@
           <% else %>
             <td><%= button_to "Mark Paid", change_status_path(order, status: "paid"), class: "btn btn-warning", disabled:true %>
           <% end %>
+          <% if order.status == "paid" %>
+          <td><%= button_to "Mark Completed", change_status_path(order, status: "completed"), class: "btn btn-success" %>
+            <% else %>
+            <td><%= button_to "Mark Completed", change_status_path(order, status: "completed"), class: "btn btn-success",  disabled:true%>
+              <% end %>
           </td>
           <% if order.status == "paid" || order.status == "ordered" %>
           <td><%= button_to "Cancel", change_status_path(order, status: "cancelled"), class: "btn btn-danger" %> </td>
