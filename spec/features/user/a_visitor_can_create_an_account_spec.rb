@@ -11,7 +11,9 @@ describe "Creating an Account" do
       fill_in :Name, with: "Anthony Ciccone"
       fill_in :Password, with: "raph"
       fill_in "user[password_confirmation]", with: "raph"
-      click_on "Create User"
+      within(".new-user") do
+        click_on 'Create Account'
+      end
 
       expect(current_path).to eq(dashboard_path)
       expect(page).to have_content "Logged in as Anthony Ciccone"

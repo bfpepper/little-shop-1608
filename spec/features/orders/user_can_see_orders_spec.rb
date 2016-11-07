@@ -37,4 +37,16 @@ feature "User visits a specific order" do
 
     expect(page).to have_content("You must be logged in to view your orders.")
   end
+
+  scenario "A logged in user cannot see another user's orders" do
+    user1, user2 = create_list(:user, 2)
+    trip = create(:trip)
+    order = Order.create(cost:4, user_id: user1.id)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user2)
+
+    visit order_path(order)
+    
+    expect(page).to_not have_content("Ribbit")
+    expect(page).to have_content("The page you were looking for doesn't exist")
+  end
 end

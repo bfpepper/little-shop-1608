@@ -3,11 +3,16 @@ Rails.application.routes.draw do
 
   root to: 'trips#index'
 
+  get '/auth/github/callback', to: 'sessions#create'
+
   namespace :admin do
     get '/dashboard', to: 'dashboard#index'
+    get '/dashboard/:id', to: 'dashboard#show', as: 'order'
+
+    resources :trips, only: [:index, :create, :new, :edit, :update]
   end
 
-  resources :trips, only: [:index]
+  resources :trips, only: [:index, :show]
   resources :carts, only: [:create]
   resources :users, only: [:new, :index, :create, :edit, :update]
 
@@ -26,7 +31,7 @@ Rails.application.routes.draw do
 
   get '/:category_name', to: 'categories#show'
 
-  get '/trips/:title', to: 'trips#show', as: 'trip'
-  post '/trips/:title', to: 'trips#show'
+  # get '/trips/:title', to: 'trips#show', as: 'trip'
+  # post '/trips/:title', to: 'trips#show'
 
 end

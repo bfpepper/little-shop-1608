@@ -31,6 +31,7 @@ FactoryGirl.define do
     password_confirmation "password"
   end
 
+
   factory :category do
     title {generate(:category_title)}
   end

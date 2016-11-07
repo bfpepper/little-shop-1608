@@ -26,6 +26,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    render file: 'public/404', layout: false unless current_user && current_user == @user
   end
 
   def update
