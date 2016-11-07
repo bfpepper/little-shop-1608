@@ -18,8 +18,13 @@
             <%= submit_tag "Log In!", class: "btn btn-warning"%>
           </div>
         <% end %>
+        <hr>
       </div>
-      <%= link_to "Login with Github", "https://github.com/login/oauth/authorize?client_id=65a45e10bd1029b7280e" %>
+      <div class="container">
+        <a class="btn btn-default btn-github" href="https://github.com/login/oauth/authorize?client_id=65a45e10bd1029b7280e">
+          <span><%= image_tag "/assets/GitHub-Mark-Light-32px.png", size: "20" %></span> <span>Login with Github</span>
+        </a>
+      </div>
     </div>
   </div>
 </div>

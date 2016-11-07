@@ -1,11 +1,15 @@
 <% content_tag :div, class: @trip.title %>
-<div style="background-image: url(<%= @trip.image_url %>)" class="col-md-6 trip-img"></div>
-  <div class = "col-md-6 trip-img">
-    <p><h2><%= @trip.title %> <%= number_to_currency(@trip.price) %></h2></p>
-    <p><%= @trip.description %></p>
-  <% if @trip.not_retired? %>
-    <%= button_to "Hop on it!", carts_path(trip_id: @trip.id), class: "btn btn-success trip-card-btn btn-lg" %>
-  <% else %>
-    <p><strong><%= "Trip Retired" %></strong></p>
-  <% end %>
-</div>
+  <div class="col-md-8 col-md-offset-2">
+    <div style="background-image: url(<%= @trip.image_url %>)" class="jumbotron show-jumbo">
+      <h1 class="page-header" id="show-jumbo-txt"><%= @trip.title %> </h1>
+      <h2 id="show-jumbo-txt"><%= number_to_currency(@trip.price) %></h2>
+      <% if @trip.not_retired? %>
+        <%= button_to "Hop on it!", carts_path(trip_id: @trip.id), class: "btn btn-success btn-lg" %>
+      <% else %>
+        <p id="retired"><strong><%= "Trip Retired" %></strong></p>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-8 col-md-offset-2">
+      <p><%= @trip.description %></p>
+  </div>
