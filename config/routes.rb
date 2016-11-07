@@ -34,4 +34,6 @@ Rails.application.routes.draw do
   # get '/trips/:title', to: 'trips#show', as: 'trip'
   # post '/trips/:title', to: 'trips#show'
 
+  post '/change_status/:id', to: 'orders#change_status', as: 'change_status'
+
 end
