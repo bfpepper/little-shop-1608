@@ -1,0 +1,32 @@
+
+<table class="table">
+  <% orders.each do |order| %>
+    <tr>
+      <td><%= order.user.name %></td>
+      <td><%= order.created_at.strftime("%m-%d-%Y") %> </td>
+      <td><%= link_to order.trips.trip_titles, admin_order_path(order)  %></td>
+      <td><%= order.orders_trips.trip_quantity  %></td>
+      <td><%= order.cost %></td>
+      <td><%= order.status %></td>
+
+      <% if order.status == "ordered" %>
+        <td><%= button_to "Mark Paid", change_status_path(order, status: "paid"), class: "btn btn-warning" %>
+      <% else %>
+        <td><%= button_to "Mark Paid", change_status_path(order, status: "paid"), class: "btn btn-warning", disabled:true %>
+      <% end %>
+
+      <% if order.status == "paid" %>
+        <td><%= button_to "Mark Completed", change_status_path(order, status: "completed"), class: "btn btn-success" %>
+      <% else %>
+        <td><%= button_to "Mark Completed", change_status_path(order, status: "completed"), class: "btn btn-success",  disabled:true%>
+      <% end %>
+
+
+      <% if order.status == "paid" || order.status == "ordered" %>
+        <td><%= button_to "Cancel", change_status_path(order, status: "cancelled"), class: "btn btn-danger" %>
+      <% else %>
+        <td><%= button_to "Cancel", change_status_path(order), class: "btn btn-danger", disabled:true %>
+      <% end %>
+
+      </tr>
+  <% end %>
