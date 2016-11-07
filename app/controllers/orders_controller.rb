@@ -23,4 +23,11 @@ class OrdersController < ApplicationController
     redirect_to orders_url
   end
 
+  def change_status
+    order = Order.find(params[:id])
+    order.status = params[:status]
+    order.save
+    redirect_to admin_dashboard_path
+  end
+
 end
