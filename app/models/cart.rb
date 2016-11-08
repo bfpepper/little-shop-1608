@@ -44,4 +44,11 @@ class Cart
     @contents[trip_id] = quantity.to_i
   end
 
+  def place_order(order)
+    contents.each do |trip_id, count|
+      trip = Trip.find(trip_id.to_i)
+      OrdersTrip.create(order_id: order.id, trip_id: trip_id.to_i, quantity: count, trip_price: trip.price)
+    end
+  end
+
 end
