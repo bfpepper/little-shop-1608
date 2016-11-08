@@ -18,6 +18,16 @@
           <%= text_field_tag :search, "Find your next lilypad", class: "form-control", id: "destination-search" %>
           <%= submit_tag "Go", id: "destination-submit", class: "btn btn-default" %>
         </div>
+
+        <div class="dropdown" id="category-dropdown">
+          <a href="#" id="category-toggle" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <% @categories.each do |category| %>
+              <li><%= link_to category.title, "/#{category.title}" %></li>
+            <% end %>
+          </ul>
+        </div>
+
       <% end %>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>

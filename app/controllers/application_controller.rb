@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :set_cart
+  before_action :set_cart, :set_categories
 
   helper_method :current_user
 
@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
 
   def current_admin?
     current_user && current_user.admin?
+  end
+
+  def set_categories
+    @categories = Category.all
   end
 
 end

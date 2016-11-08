@@ -16,7 +16,7 @@
  *= require trip-cards.scss
 
  */
- 
+
 
 /*
  =============================================
@@ -138,6 +138,19 @@
 
 .wiggle:hover {
 	-webkit-animation: wiggle 0.5s infinite;
+}
+
+#category-dropdown {
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+#category-toggle {
+  font-family: serif;
+  font-size: 14px;
+  letter-spacing: 1.4px;
+  color: white;
 }
 
 /*
