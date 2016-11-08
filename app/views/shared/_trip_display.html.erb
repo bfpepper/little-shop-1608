@@ -2,7 +2,7 @@
   <% if trip.not_retired? %>
     <%= content_tag :div, class: trip.title do %>
       <div>
-        <div style="background-image: url(<%= trip.image_url %>)" class="col-md-6 trip-img grow">
+        <div style="background-image: url(<%= trip.image_url %>)" class="col-md-6 trip-img">
           <a href=<%= trip_path(trip) %>>
             <h2 class="trip-card-header"><%= trip.title %></h2>
           </a>
@@ -23,7 +23,7 @@
 <% @trips.each do |trip| %>
   <% if trip.retired? %>
     <%= content_tag :div, class: trip.title do %>
-      <div style="background-image: url(<%= trip.image_url %>)" class="col-md-6 trip-img grow">
+      <div style="background-image: url(<%= trip.image_url %>)" class="col-md-6 trip-img">
         <a href=<%= trip_path(trip) %>>
           <h2 class="trip-card-header"><%= trip.title %></h2>
         </a>
