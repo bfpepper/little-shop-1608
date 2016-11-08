@@ -25,4 +25,8 @@ class Trip < ActiveRecord::Base
   def slug
     title.downcase.gsub(" ", "-")
   end
+
+  def formate_not_retired
+    retired.gsub("_", " ")
+  end
 end

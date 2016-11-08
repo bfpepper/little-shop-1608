@@ -7,10 +7,10 @@ feature "Admin trip viewing" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit admin_trips_path
-    
+
     expect(page).to have_link(trip1.title)
     expect(page).to have_link(trip2.title)
-    expect(page).to have_content(trip1.retired)
+    expect(page).to have_content("not retired")
     expect(page).to have_link("Edit")
   end
 end
