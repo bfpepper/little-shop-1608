@@ -22,8 +22,8 @@
 
 .trip-card-price {
   position: absolute;
-  top: -18px;
-  right: 1%;
+  top: 35px;
+  left: 3%;
   color: white;
   text-shadow: 2px 2px seagreen;
 }
@@ -32,8 +32,7 @@
   position: absolute;
   color: white;
   text-shadow: 2px 2px seagreen;
-  margin-top: 1%;
-  margin-left: 1%;
+  left: 3%;
 }
 
 .trip-card-text {
@@ -47,8 +46,8 @@
 
 .trip-card-btn {
   position: absolute;
-  bottom: 40px;
-  left: 4%;
+  top: 90px;
+  left: 3%;
 }
 
 .trip-card-text p {
