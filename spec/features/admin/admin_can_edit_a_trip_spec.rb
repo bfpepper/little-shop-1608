@@ -14,12 +14,14 @@ feature "Admin trip editing" do
     
     fill_in :Title, with: "Best trip ever!"
     fill_in :Price, with: "300"
+    check "trip_retired"
 
     click_on "Update Trip"
 
-    visit trips_path
+    visit trip_path(trip)
 
     expect(page).to have_content("Best trip ever!")
     expect(page).to have_content("300")
+    expect(page).to have_content("Trip Retired")
   end
 end
