@@ -37,7 +37,7 @@ describe "Trip" do
     end
   end
 
-  context "truncate_description" do
+  context "methods" do
     it "method can truncate first 25 letters of description" do
       trip =  Trip.create(description: "TestTestTasdasdasdasdestteadasdstTestTEdasdasdasdSTESTEasdasdasdsadSTESdasdasdasdasdsadasTEST", price: 1.23, image_url: "test.com", title: "test")
 
@@ -50,5 +50,12 @@ describe "Trip" do
     trip = create(:trip)
 
     expect(trip.to_param) == trip.title
+  end
+
+  scenario "formate_not_retired method" do
+    trip = create(:trip)
+
+    expect(trip.retired).to eq("not_retired")
+    expect(trip.formate_not_retired).to eq("not retired")
   end
 end
