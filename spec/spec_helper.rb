@@ -4,6 +4,7 @@ DatabaseCleaner[:active_record].strategy = :truncation
 RSpec.configure do |config|
   config.before(:all) do
     DatabaseCleaner.clean
+    Capybara.javascript_driver = :webkit
   end
 
   config.after(:each) do

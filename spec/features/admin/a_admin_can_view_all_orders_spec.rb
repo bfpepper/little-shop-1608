@@ -2,6 +2,7 @@ require 'rails_helper'
 
 
 describe "An authorized admin visits /dashboard" do
+  self.use_transactional_tests = false
   scenario "an admin can view all orders" do
     trip1, trip2 = create_list(:trip, 22)
 
@@ -25,8 +26,7 @@ describe "An authorized admin visits /dashboard" do
   end
 
 
-  scenario "an admin can view orders by specific category" do
-    pending
+  scenario "an admin can view orders by specific category", js: true do
     trip1, trip2 = create_list(:trip, 2)
 
     admin_user = create(:user)
@@ -40,7 +40,7 @@ describe "An authorized admin visits /dashboard" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin_user)
     visit admin_dashboard_path
 
-    find(:css, '.dropdown').click_on("Paid")
+    select 'paid', from: 'status'
 
       expect(page).to have_content(trip2.title)
       expect(page).to_not have_content(trip1.title)

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 feature "visitor changes the dropdown and clicks update" do
-  scenario "visitor sees their total price update" do
-    pending
+  self.use_transactional_tests = false
+  scenario "visitor sees their total price update", js: true do
     trip = create(:trip)
 
     visit '/trips'
