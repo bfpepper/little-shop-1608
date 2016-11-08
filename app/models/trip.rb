@@ -25,4 +25,8 @@ class Trip < ActiveRecord::Base
   def slug
     title.downcase.gsub(" ", "-")
   end
+
+  def self.search(search_term)
+    Trip.where("title like ?", "%#{search_term}%") + Trip.where("description like ?", "%#{search_term}%")
+  end
 end

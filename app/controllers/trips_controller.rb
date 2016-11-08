@@ -12,4 +12,11 @@ class TripsController < ApplicationController
     end
   end
 
+  def search
+    @trips = Trip.search(params[:search]).uniq
+    respond_to do |format|
+      format.js
+    end
+  end
+
 end
