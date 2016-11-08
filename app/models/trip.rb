@@ -28,6 +28,7 @@ class Trip < ActiveRecord::Base
 
   def self.search(search_term)
     Trip.where("title like ?", "%#{search_term}%") + Trip.where("description like ?", "%#{search_term}%")
+  end
 
   def formate_not_retired
     retired.gsub("_", " ")
