@@ -10,10 +10,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
-    @hash = Gmaps4rails.build_markers(@trip) do |trip, marker|
-      marker.lat trip.latitude
-      marker.lng trip.longitude
-    end
+    @hash = @trip.get_coordinates
   end
 
   def search
