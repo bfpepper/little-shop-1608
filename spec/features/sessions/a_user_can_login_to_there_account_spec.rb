@@ -5,7 +5,10 @@ describe "Logging in" do
     scenario "a user can login to their account" do
       User.create(name: "Anthony Ciccone", email: "a@gmail.com",  password: "123", password_confirmation: "123")
 
-      visit login_path
+      visit "/"
+      click_on "Login"
+      expect(current_path).to eq(login_path)
+      expect(page).to have_link("Create Account")
       fill_in :Email, with: "a@gmail.com"
       fill_in :Password, with: "123"
       click_button "Log In!"
