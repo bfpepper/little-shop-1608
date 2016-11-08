@@ -50,5 +50,4 @@ class Cart
       OrdersTrip.create(order_id: order.id, trip_id: trip_id.to_i, quantity: count, trip_price: trip.price)
     end
   end
-
 end

@@ -15,7 +15,6 @@ class OrdersController < ApplicationController
     @order = current_user.orders.create(cost: @cart.total_cost)
     @cart.place_order(@order)
     session[:cart].clear
-
     flash[:success] = "Order was successfully placed!"
     redirect_to orders_url
   end
