@@ -1,7 +1,11 @@
 class TripsController < ApplicationController
 
   def index
-    @trips = Trip.all
+    if params[:override]
+      @trips = params[:override].map { |trip| Trip.find(trip) }
+    else
+      @trips =  Trip.all
+    end
   end
 
   def show
@@ -14,6 +18,10 @@ class TripsController < ApplicationController
 
   def search
     @trips = Trip.search(params[:search]).uniq
+    unless URI(request.referer).path == root_path || URI(request.referer).path == trips_path
+      redirect_to trips_path(override: @trips)
+    end
+
     respond_to do |format|
       format.js
     end
