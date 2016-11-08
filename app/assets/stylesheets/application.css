@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require bootstrap.min
+ *= require trip-cards.scss
 
  */
  
@@ -137,70 +138,6 @@
 
 .wiggle:hover {
 	-webkit-animation: wiggle 0.5s infinite;
-}
-
-/*
- =============================================
- TRIP CARDS
- =============================================
-*/
-
-.trip-container {
-  position: relative;
-  height: 300px;
-  margin-bottom: 1px;
-  border-right: 1px solid white;
-}
-
-.trip-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-}
-
-.trip-card-price {
-  position: absolute;
-  top: -18px;
-  right: 1%;
-  color: white;
-  text-shadow: 2px 2px seagreen;
-}
-
-.trip-card-header {
-  position: absolute;
-  color: white;
-  text-shadow: 2px 2px seagreen;
-  margin-top: 1%;
-  margin-left: 1%;
-}
-
-.trip-card-text {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding-left: 2%;
-}
-
-.trip-card-btn {
-  position: absolute;
-  bottom: 40px;
-  left: 4%;
-}
-
-.trip-card-text p {
-  color: white;
-}
-
-.trip-img:hover {
-  filter: sepia(1);
-}
-
-.trip-img a:hover {
-  text-decoration: none;
 }
 
 /*
