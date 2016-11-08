@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :find_user, only: [:edit, :update]
 
   def new
     @user = User.new
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if
+    if current_user 
       @user = current_user
     else
       render file: 'public/404', layout: false
@@ -25,12 +26,10 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
     render file: 'public/404', layout: false unless current_user && current_user == @user
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = "You have successfully updated your account info"
       redirect_to dashboard_path
@@ -41,6 +40,10 @@ class UsersController < ApplicationController
 
 
   private
+
+  def find_user
+    @user = User.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
