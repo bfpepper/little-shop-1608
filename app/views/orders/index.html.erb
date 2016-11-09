@@ -9,7 +9,7 @@
           <tr>
             <td><%= order_trip.trip.title %></td>
             <td><%= order_trip.quantity %></td>
-            <td><%= order_trip.subtotal %></td>
+            <td><%= number_to_currency(order_trip.subtotal) %></td>
           </tr>
         <% end %>
       </table>
