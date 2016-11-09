@@ -1,6 +1,7 @@
 class Trip < ActiveRecord::Base
-  validates :title, :description, :image_url, :price, presence: true
+  validates :title, :description, :image_url, presence: true
   validates :title, uniqueness: true
+  validates :price, presence: true, numericality: { greater_than: 0 }
   has_many :trips_categories, dependent: :destroy
   has_many :categories, through: :trips_categories
   has_many :orders_trips, dependent: :destroy
@@ -25,4 +26,25 @@ class Trip < ActiveRecord::Base
   def slug
     title.downcase.gsub(" ", "-")
   end
+
+  def self.search(search_term)
+    Trip.where("title like ?", "%#{search_term}%") + Trip.where("description like ?", "%#{search_term}%")
+  end
+
+  def formate_not_retired
+    retired.gsub("_", " ")
+  end
+
+  def get_coordinates
+    Gmaps4rails.build_markers(self) do |trip, marker|
+      lat = marker.lat trip.latitude
+      long = marker.lng trip.longitude
+      return [{lat: lat, lng: long}]
+    end
+  end
+
+  def self.have_retired?
+    pluck(:retired).include?("retired")
+  end
+
 end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "visitor changes the dropdown and clicks update" do
   scenario "visitor sees their total price update" do
-    pending
+    pending "works with qt and webkit"
     trip = create(:trip)
 
     visit '/trips'

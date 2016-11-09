@@ -1,3 +1,5 @@
+<%= link_to "Dashboard", admin_dashboard_path, class: "btn btn-primary" %>
+<td><%= link_to "Create a New Trip", new_admin_trip_path, class: "btn btn-success" %></td>
 <h1>All Trips</h1>
 <table class="table">
   <th>Image</th><th>Title</th><th>Price</th><th>Description</th><th>Status</th><th></th>
@@ -5,11 +7,11 @@
     <tr>
       <td><%= image_tag trip.image_url, size: "60x40" %></td>
       <td><%= link_to trip.title, trip_path(trip) %></td>
-      <td><%= trip.price %></td>
+      <td><%= number_to_currency(trip.price) %></td>
       <td>
       <span class="glyphicon glyphicon-align-center" aria-label="Left Align" data-toggle="tooltip" data-placement="bottom" title="<%= trip.description %>"></span>
       </td>
-      <td><%= trip.retired %></td>
+      <td><%= trip.formate_not_retired %></td>
       <td><%= link_to "Edit", edit_admin_trip_path(trip, title: trip.title), class: "btn btn-success" %></td>
     </tr>
   <% end %>

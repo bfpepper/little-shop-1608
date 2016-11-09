@@ -2,7 +2,8 @@ class User < ApplicationRecord
   has_secure_password
   validates_confirmation_of :password
   validates :email, :name, presence: true
-  has_many :orders
+  validates :email, uniqueness: true
+  has_many :orders, dependent: :destroy
 
   enum role: [:default, :admin]
 end

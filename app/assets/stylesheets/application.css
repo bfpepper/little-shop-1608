@@ -13,7 +13,10 @@
  *= require_tree .
  *= require_self
  *= require bootstrap.min
+ *= require trip-cards.scss
+
  */
+
 
 /*
  =============================================
@@ -137,57 +140,18 @@
 	-webkit-animation: wiggle 0.5s infinite;
 }
 
-/*
- =============================================
- TRIP CARDS
- =============================================
-*/
-
-.trip-img {
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 300px;
-  position: relative;
-  margin-bottom: 2px;
-  border-right: solid 2px white;
+#category-dropdown {
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
-.trip-card-price {
-  position: absolute;
-  top: -18px;
-  right: 1%;
-  color: white;
-  text-shadow: 2px 2px seagreen;
-}
-
-.trip-card-header {
-  color: white;
-  text-shadow: 2px 2px seagreen;
-  margin-top: 1%;
-  margin-left: 1%;
-}
-
-.trip-card-text {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding-left: 2%;
-}
-
-.trip-card-btn {
-  position: absolute;
-  bottom: 40px;
-  left: 4%;
-}
-
-.trip-card-text p {
+#category-toggle {
+  font-family: serif;
+  font-size: 14px;
+  letter-spacing: 1.4px;
   color: white;
 }
-
-.grow { transition: all .2s ease-in-out; }
-.grow:hover { transform: scale(1.1); z-index: 1; }
 
 /*
  =============================================
@@ -249,6 +213,7 @@
   margin-left: 10px;
 }
 
+
 .btn-github {
   background-color: #333333;
   color: white;
@@ -259,3 +224,20 @@
   background-color: #1a1a1a;
   color: white;
 }
+
+
+/*
+ =============================================
+ SELECT
+ =============================================
+*/
+
+.styled-select {
+  height: 35px;
+  background: seagreen;
+  border-radius: 6px;
+  padding: 25px;
+  margin-bottom: 10px;
+  color: white;
+}
+

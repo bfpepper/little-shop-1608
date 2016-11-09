@@ -9,6 +9,7 @@ describe "as an admin when i visit /admin/dashboard " do
 
     visit '/admin/dashboard'
 
+    expect(current_path).to eq(admin_dashboard_path)
     expect(page).to have_content("Admin Dashboard")
   end
 end

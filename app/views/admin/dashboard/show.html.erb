@@ -1,6 +1,8 @@
 <div class="well">
   <h2>Order # <%= @order.id %></h2>
   <p>Placed on: <%= @order.created_at.strftime("%b %d, %Y at %l:%M %P") %></p>
+  <p> Name: <%= @order.user.name %></p>
+  <p>Email Address: <%= @order.user.email %></p>
   <span class="label label-default"><%= @order.status %></span> <span><em>status last updated on <%= @order.updated_at.strftime("%b %d, %Y at %l:%M %P") %></em></span><br><br>
   <table class="table">
     <th>Location</th><th>Quantity</th><th>Subtotal</th>
@@ -8,10 +10,10 @@
       <tr>
         <td><%= link_to order_trip.trip.title, trip_path(order_trip.trip) %></td>
         <td><%= order_trip.quantity %></td>
-        <td><%= order_trip.subtotal %></td>
+        <td><%= number_to_currency(order_trip.subtotal) %></td>
       </tr>
     <% end %>
   </table>
   <hr>
-  <h4 class="text-right"><strong>Total:</strong> <%= @order.cost %></h4>
+  <h4 class="text-right"><strong>Total:</strong> <%= number_to_currency(@order.cost) %></h4>
 </div>
