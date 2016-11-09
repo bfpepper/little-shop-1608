@@ -1,4 +1,4 @@
 <%= link_to "Trips", admin_trips_path, class: "btn btn-primary" %>
 <h2 class="text-left">Admin Dashboard</h2>
-<%= select_tag :status, options_for_select(["all orders", "ordered", "paid", "completed", "cancelled"]), id: "admin-order-status" %>
+<%= select_tag :status, options_for_select(["all orders", "ordered", "paid", "completed", "cancelled"]), id: "admin-order-status", class: "styled-select"  %>
 <div id="admin-orders"><%= render partial: 'orders', locals: { orders: @orders } %></div>
