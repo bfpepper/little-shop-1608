@@ -6,7 +6,7 @@
     <tr>
       <td><%= image_tag trip.image_url, size: "60x40" %></td>
       <td><%= link_to trip.title, trip_path(trip) %></td>
-      <td><%= trip.price %></td>
+      <td><%= number_to_currency(trip.price) %></td>
       <td>
       <span class="glyphicon glyphicon-align-center" aria-label="Left Align" data-toggle="tooltip" data-placement="bottom" title="<%= trip.description %>"></span>
       </td>

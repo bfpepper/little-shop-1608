@@ -4,17 +4,17 @@ FactoryGirl.define do
     "category#{n}"
   end
 
-  sequence :title do |n|
-    "Trip#{n}"
-  end
+    sequence :title do |n|
+      "Trip#{n}"
+    end
 
-  sequence :description do |n|
-    "Trip text #{n}"
-  end
+    sequence :description do |n|
+      "Trip text #{n}"
+    end
 
-  sequence :price do |n|
-    "#{n.to_f}"
-  end
+    sequence :price do |n|
+      "#{n.to_f}"
+    end
 
   sequence :name do |n|
     "User#{n}"
