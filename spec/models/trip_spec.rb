@@ -66,4 +66,15 @@ describe "Trip" do
     expect(trip.get_coordinates).to eq(expected)
   end
 
+  it "have_retired? method" do
+    trip1 = Trip.create(title: "Title1", description: "test", image_url: "test", price: 900.0, address: "Denver, Colorado", retired: "not_retired")
+    trip2 = Trip.create(title: "Title2", description: "test", image_url: "test", price: 900.0, address: "Denver, Colorado", retired: "retired")
+
+    trips = Trip.all
+    trips_not_retired = Trip.where(retired: "not_retired")
+
+    expect(trips.have_retired?).to eq(true)
+    expect(trips_not_retired.have_retired?).to eq(false)
+  end
+
 end
