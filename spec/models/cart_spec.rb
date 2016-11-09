@@ -34,21 +34,31 @@ describe "Cart" do
     expect(cart.trips_count).to eq({trip1 => 2, trip2 => 2})
   end
 
-   it "remove can remove a trip" do
-     trip1, trip2 = create_list(:trip,2)
-     contents = {"#{trip1.id}" => 2, "#{trip2.id}" => 3}
-     cart = Cart.new(contents)
+  it "remove can remove a trip" do
+    trip1, trip2 = create_list(:trip,2)
+    contents = {"#{trip1.id}" => 2, "#{trip2.id}" => 3}
+    cart = Cart.new(contents)
 
-     expect(cart.remove(trip1.id.to_s)).to eq(2)
-     expect(cart.contents).to eq({"#{trip2.id}" => 3})
-   end
+    expect(cart.remove(trip1.id.to_s)).to eq(2)
+    expect(cart.contents).to eq({"#{trip2.id}" => 3})
+  end
 
-   it "update can update your cart" do
-      trip = create(:trip)
-      contents = {"#{trip.id}" => 2}
-      cart = Cart.new(contents)
-      cart.update(trip.id.to_s, 3)
+  it "update can update your cart" do
+    trip = create(:trip)
+    contents = {"#{trip.id}" => 2}
+    cart = Cart.new(contents)
+    cart.update(trip.id.to_s, 3)
 
     expect(cart.contents).to eq({"#{trip.id}" => 3})
+  end
+
+  it "can place_order" do
+    trip = create(:trip)
+    user = create(:user)
+    order = user.orders.create()
+    cart = Cart.new( { "#{trip.id}" => 1 } )
+    cart.place_order(order)
+
+    expect(OrdersTrip.count).to eq(1)
   end
 end
