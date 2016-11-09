@@ -13,7 +13,7 @@
           <td><%= order.created_at.strftime("%m-%d-%Y") %> </td>
           <td><%= trip.title%></td>
           <td><%=order_trips.quantity %></td>
-          <td><%=order_trips.subtotal%></td>
+          <td><%= number_to_currency(order_trips.subtotal)%></td>
         </tr>
         <% end  %>
         <% end %>
