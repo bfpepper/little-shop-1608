@@ -23,7 +23,7 @@ describe "Viewing an order page as an admin" do
     expect(page).to have_link(trip1.title)
     expect(page).to have_content("Quantity")
     expect(page).to have_content("Quantity")
-    expect(page).to have_content("1620.0")
+    expect(page).to have_content("$1,620.00")
     expect(page).to have_content(user1.orders.first.status)
   end
 end
