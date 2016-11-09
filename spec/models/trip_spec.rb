@@ -46,16 +46,24 @@ describe "Trip" do
     end
   end
 
-  scenario "Trips to_param method" do
+  it "Trips to_param method" do
     trip = create(:trip)
 
     expect(trip.to_param) == trip.title
   end
 
-  scenario "formate_not_retired method" do
+  it "formate_not_retired method" do
     trip = create(:trip)
 
     expect(trip.retired).to eq("not_retired")
     expect(trip.formate_not_retired).to eq("not retired")
   end
+
+  it "get_coordinates method" do
+    trip = Trip.create(title: "Title1", description: "test", image_url: "test", price: 900.0, address: "Denver, Colorado")
+
+    expected = [{lat: 39.7392358, lng: -104.990251}]
+    expect(trip.get_coordinates).to eq(expected)
+  end
+
 end

@@ -33,4 +33,13 @@ class Trip < ActiveRecord::Base
   def formate_not_retired
     retired.gsub("_", " ")
   end
+
+  def get_coordinates
+    Gmaps4rails.build_markers(self) do |trip, marker|
+      lat = marker.lat trip.latitude
+      long = marker.lng trip.longitude
+      return [{lat: lat, lng: long}]
+    end
+  end
+
 end
