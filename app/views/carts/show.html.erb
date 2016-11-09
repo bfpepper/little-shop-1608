@@ -4,11 +4,11 @@
     <tr>
       <td><%= image_tag trip.image_url, size: "60x40" %></td>
       <td><%= link_to trip.title, trip_path(trip) %></td>
-      <td><%= trip.price %></td>
+      <td><%= number_to_currency(trip.price) %></td>
       <td>
       <span class="glyphicon glyphicon-align-center" aria-label="Left Align" data-toggle="tooltip" data-placement="bottom" title="<%= trip.description %>"></span>
       </td>
-      <td><%= @cart.subtotal_of_trip(trip, count) %></td>
+      <td><%= number_to_currency(@cart.subtotal_of_trip(trip, count)) %></td>
       <td><%= form_tag update_cart_path(trip_id: trip.id) do %>
         <%= select_tag :quantity, options_for_select([1,2,3,4,5,6,7,8,9], count), class: "cart-quantity", onchange: "changeCart(#{trip.id}, this)" %>
       <% end %></td>
@@ -18,7 +18,7 @@
   <% end %>
 </table>
 
-Total (<%= @cart.total %> Items) <%= @cart.total_cost %></br>
+Total (<%= @cart.total %> Items) <%= number_to_currency(@cart.total_cost) %></br>
 
 <% unless current_user %>
   <%= link_to "Login or Create Account to Checkout", new_user_path %>

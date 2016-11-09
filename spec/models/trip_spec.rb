@@ -1,41 +1,14 @@
 require 'rails_helper'
 
-describe "Trip" do
-  context "validations" do
-    it "is invalid without a title" do
-      trip = Trip.new(description: "test", image_url: "test.com", price: 1.23)
-      expect(trip).to be_invalid
-    end
-
-    it "is invalid without a description" do
-      trip = Trip.new(title: "test", image_url: "test.com", price: 1.23)
-      expect(trip).to be_invalid
-    end
-
-    it "is invalid without a image url" do
-      trip = Trip.new(description: "test", title: "test.com", price: 1.23)
-      expect(trip).to be_invalid
-    end
-
-    it "is invalid without a price" do
-      trip = Trip.new(description: "test", image_url: "test.com", title: "test")
-      expect(trip).to be_invalid
-    end
-
-    it "is invalid without a unique title" do
-      trip = Trip.create(description: "test", price: 1.23, image_url: "test.com", title: "test")
-      trip2 = Trip.new(description: "test", price: 1.23, image_url: "test.com", title: "test")
-      expect(trip2).to be_invalid
-    end
-
-  end
-
-  context "relationships" do
-    it "belongs to a category" do
-      trip = Trip.new
-      expect(trip).to respond_to(:categories)
-    end
-  end
+RSpec.describe Trip, type: :model do
+  describe "validations"
+  it { should validate_numericality_of(:price) }
+  it { should_not allow_value(0).for(:price) }
+  it { should validate_presence_of(:title)}
+  it { should validate_presence_of(:description)}
+  it { should validate_presence_of(:image_url)}
+  it { should validate_uniqueness_of(:title)}
+  it { should respond_to(:categories)}
 
   context "methods" do
     it "method can truncate first 25 letters of description" do
@@ -64,6 +37,17 @@ describe "Trip" do
 
     expected = [{lat: 39.7392358, lng: -104.990251}]
     expect(trip.get_coordinates).to eq(expected)
+  end
+
+  it "have_retired? method" do
+    trip1 = Trip.create(title: "Title1", description: "test", image_url: "test", price: 900.0, address: "Denver, Colorado", retired: "not_retired")
+    trip2 = Trip.create(title: "Title2", description: "test", image_url: "test", price: 900.0, address: "Denver, Colorado", retired: "retired")
+
+    trips = Trip.all
+    trips_not_retired = Trip.where(retired: "not_retired")
+
+    expect(trips.have_retired?).to eq(true)
+    expect(trips_not_retired.have_retired?).to eq(false)
   end
 
 end

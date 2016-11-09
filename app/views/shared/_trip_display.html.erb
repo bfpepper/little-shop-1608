@@ -20,22 +20,24 @@
 
 <div class="row"> </div>
 
-<h1>Previously Offered Trips</h1>
-<% trips.each do |trip| %>
-  <% if trip.retired? %>
-    <%= content_tag :div, class: trip.title do %>
-      <div class="trip-container col-md-6">
-        <a href= <%= trip_path(trip) %>>
-          <%= image_tag trip.image_url, class: "trip-img" %>
-        </a>
-        <a href=<%= trip_path(trip) %>>
-          <h2 class="trip-card-header"><%= trip.title %></h2>
-        </a>
-        <h2 class="trip-card-price"><%= number_to_currency(trip.price) %></h2>
-        <div class="trip-card-text">
-          <p><em><%= trip.truncate_description(trip.description) %>...</em></p>
+<% if trips.have_retired? %>
+  <h1>Previously Offered Trips</h1>
+  <% trips.each do |trip| %>
+    <% if trip.retired? %>
+      <%= content_tag :div, class: trip.title do %>
+        <div class="trip-container col-md-6">
+          <a href= <%= trip_path(trip) %>>
+            <%= image_tag trip.image_url, class: "trip-img" %>
+          </a>
+          <a href=<%= trip_path(trip) %>>
+            <h2 class="trip-card-header"><%= trip.title %></h2>
+          </a>
+          <h2 class="trip-card-price"><%= number_to_currency(trip.price) %></h2>
+          <div class="trip-card-text">
+            <p><em><%= trip.truncate_description(trip.description) %>...</em></p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>

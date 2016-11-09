@@ -1,6 +1,7 @@
 class Trip < ActiveRecord::Base
-  validates :title, :description, :image_url, :price, presence: true
+  validates :title, :description, :image_url, presence: true
   validates :title, uniqueness: true
+  validates :price, presence: true, numericality: { greater_than: 0 }
   has_many :trips_categories, dependent: :destroy
   has_many :categories, through: :trips_categories
   has_many :orders_trips, dependent: :destroy
@@ -40,6 +41,10 @@ class Trip < ActiveRecord::Base
       long = marker.lng trip.longitude
       return [{lat: lat, lng: long}]
     end
+  end
+
+  def self.have_retired?
+    pluck(:retired).include?("retired")
   end
 
 end
