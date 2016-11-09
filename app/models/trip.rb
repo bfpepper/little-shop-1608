@@ -42,4 +42,8 @@ class Trip < ActiveRecord::Base
     end
   end
 
+  def self.have_retired?
+    pluck(:retired).include?("retired")
+  end
+
 end
