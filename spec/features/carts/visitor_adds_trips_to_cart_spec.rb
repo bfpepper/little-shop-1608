@@ -38,6 +38,7 @@ feature "visitor clicks on Hop on it!" do
       click_on "View Cart"
 
       expect(current_path).to eq(cart_path)
+      expect(page).to have_css("img[src*='http://logolagoon.com/wp-content/uploads/2013/12/free-frog-logo.png']")
       expect(page).to have_content("Description")
       expect(page).to have_content("#{trip1.title}")
       expect(page).to have_content("#{trip2.price}")
