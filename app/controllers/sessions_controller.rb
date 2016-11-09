@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   def create
     if login_with_oauth?(params)
-      response = Faraday.post("https://github.com/login/oauth/access_token?client_id=65a45e10bd1029b7280e&client_secret=ca34fba6965c2db07142a2e86ba84d429ece7e5d&code=#{params["code"]}")
+      response = Faraday.post("https://github.com/login/oauth/access_token?client_id=#{ENV["git_hub_client_id"]}&client_secret=#{ENV["git_hub_client_secret"]}&code=#{params["code"]}")
       oauth(response)
       redirect_to dashboard_path
     else
