@@ -10,10 +10,10 @@
       <tr>
         <td><%= link_to order_trip.trip.title, trip_path(order_trip.trip) %></td>
         <td><%= order_trip.quantity %></td>
-        <td><%= order_trip.subtotal %></td>
+        <td><%= number_to_currency(order_trip.subtotal) %></td>
       </tr>
     <% end %>
   </table>
   <hr>
-  <h4 class="text-right"><strong>Total:</strong> <%= @order.cost %></h4>
+  <h4 class="text-right"><strong>Total:</strong> <%= number_to_currency(@order.cost) %></h4>
 </div>
